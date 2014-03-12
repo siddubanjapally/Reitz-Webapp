@@ -11,6 +11,7 @@
       blades: 0,
       hub: 0
     };
+    $scope.da = null;
     $scope.getRow = function(data) {
       console.log(data);
       return $scope.row = data;

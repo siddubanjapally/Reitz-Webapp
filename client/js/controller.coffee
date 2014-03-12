@@ -9,6 +9,7 @@
       blades:0
       hub:0
     }
+    $scope.da = null
     $scope.getRow = (data) ->
       console.log data
       $scope.row= data
