@@ -1,0 +1,624 @@
+#formCarousel.carousel.slide(data-ride='carousel',data-interval='false')
+	.carousel-inner
+		.item.active
+			img(data-src='')
+			.container
+				.col-sm-8.col-sm-offset-2
+					.panel.panel-primary
+						.panel-heading
+							h3.panel-title.text-center Project Data
+						.panel-body
+							.col-sm-8.col-sm-offset-2
+								form(
+								role='form',
+								name='newProject',
+								novalidate)
+									.form-group
+										label(
+										class='control-label',
+										for='create-date') Date
+										input#create-date(ui-date,
+										class='form-control',
+										type='date',
+										name='dat',
+										ng-model='data.Date',
+										autofocus,
+										ng-enter,
+										placeholder='Enter Date'
+										)
+										small(
+										class='help-block',
+										ng-show='newProject.dat.$invalid && newProject.date.$dirty') Date is required
+									.form-group
+										label(
+										class='control-label',
+										for='engineer') Engineer Name
+										input#engineer(
+										class='form-control',
+										ng-enter,
+										type='text',
+										name='engineers',
+										ng-model='data.Engineer',
+
+										placeholder='Enter Engineer name',
+										pattern='[a-z]')
+										small.help-block(
+										ng-show='newProject.engineers.$invalid && newProject.engineers.$dirty') Engineer Name is required
+									.form-group
+										label(
+										class='control-label',
+										for='project-name') Project Name
+										input#project-name(
+										class='form-control',
+										ng-enter,
+										type='text',
+										name='projectName',
+										ng-model='data.ProjectName',
+										placeholder='Enter Project Name '
+										)
+										small.help-block(
+										ng-show='newProject.projectName.$invalid && newProject.projectName.$dirty') Project Name is required
+									.form-group
+										label(
+										class='control-label',
+										for='order-no') Proposal / Order No.
+										input#order-no(
+										class='form-control',
+										type='text',
+										ng-enter,
+										name='orderNo',
+										ng-model='data.Proposal_OrderNo',
+										placeholder='Enter Proposal text'
+										)
+										small.help-block(
+										ng-show='newProject.orderNo.$invalid && newProject.orderNo.$dirty') Proposal No. is required
+									.form-group
+										button.btn.btn-primary.pull-right(href='#formCarousel',data-slide='next') Next
+
+		.item
+			.container
+				.col-sm-10.col-sm-offset-1
+					.panel.panel-primary
+						.panel-heading
+							h3.panel-title.text-center Operating Point Details
+						.panel-body
+							.col-sm-6
+								.form-group(ng-class="{ 'has-error' : newProject.operatingTemp.$invalid && newProject.operatingTemp.$dirty}")
+									label(
+									class='control-label',
+									for='operatingTemp')
+										| Operating Temperature (T)
+									input#operatingTemp(
+									class='form-control',
+									type='text',
+									name='operatingTemp',
+									ng-model='data.GasOperatingPoints.T',
+									placeholder='Enter Operating Temperature '
+									)
+									small.help-block(
+									ng-show='newProject.operatingTemp.$invalid && newProject.operatingTemp.$dirty') operatingTemp is required
+								.form-group(ng-class="{ 'has-error' : newProject.normalFlowRate.$invalid && newProject.normalFlowRate.$dirty}")
+									label(
+									class='control-label',
+									for='normalFlowRate')
+										| Normal Flow Rate (Vp)
+									input#normalFlowRate(
+									class='form-control',
+									type='text',
+									name='normalFlowRate',
+									ng-model='data.GasOperatingPoints.Vp',
+									placeholder='Enter Normal Flow Rate'
+									)
+									div
+										button.btn.btn-primary.btn-circle(type="button",ng-model="data.GasDatas.VpUnits",btn-radio="'M3/S'") M3/S
+										button.btn.btn-primary.btn-circle(type="button",ng-model="data.GasDatas.VpUnits",btn-radio="'M3/M'") M3/M
+										button.btn.btn-primary.btn-circle(type="button",ng-model="data.GasDatas.VpUnits",btn-radio="'M3/H'") M3/H
+										button.btn.btn-primary.btn-circle(type="button",ng-model="data.GasDatas.VpUnits",btn-radio="'NM3/S'") NM3/S
+										button.btn.btn-primary.btn-circle(type="button",ng-model="data.GasDatas.VpUnits",btn-radio="'NM3/M'") NM3/M
+										button.btn.btn-primary.btn-circle(type="button",ng-model="data.GasDatas.VpUnits",btn-radio="'NM3/H'") NM3/H
+									small.help-block(
+									ng-show='newProject.normalFlowRate.$invalid && newProject.normalFlowRate.$dirty')
+										| Normal Flow Rate is required
+
+								.form-group(ng-class="{ 'has-error' : newProject.totalPresDiffer.$invalid && newProject.totalPresDiffer.$dirty}")
+									label(
+									class='control-label',
+									for='totalPresDiffer')
+										| Total Pressure Difference (Dpt)
+									input#totalPresDiffer(
+									class='form-control',
+									type='text',
+									name='totalPresDiffer',
+									ng-model='data.GasOperatingPoints.Dpt',
+									placeholder='Enter Total Pressure Difference'
+									)
+									small.help-block(
+									ng-show='newProject.totalPresDiffer.$invalid && newProject.totalPresDiffer.$dirty')
+										|Total Pressure difference is required
+									div
+										button.btn.btn-primary.btn-circle(type='button', ng-model='data.GasDatas.DptUnits', btn-radio='"PA"') PA
+										button.btn.btn-primary.btn-circle(type='button', ng-model='data.GasDatas.DptUnits', btn-radio='"MMwg"') MMwg
+										button.btn.btn-primary.btn-circle(type='button', ng-model='data.GasDatas.DptUnits', btn-radio='"Mbar"') Mbar
+										button.btn.btn-primary.btn-circle(type='button', ng-model='data.GasDatas.DptUnits', btn-radio='"Dapa"') Dapa
+
+								.form-group(ng-class="{ 'has-error' : newProject.statePresDiffer.$invalid && newProject.statePresDiffer.$dirty}")
+									label(
+									class='control-label',
+									for='statePresDiffer')
+										| State Pressure Difference (P1)
+									input#statePresDiffer(
+									class='form-control',
+									type='text',
+									name='statePresDiffer',
+									ng-model='data.GasOperatingPoints.P1',
+									placeholder='Enter State Pressure Difference'
+									)
+									small.help-block(
+									ng-show='newProject.statePresDiffer.$invalid && newProject.statePresDiffer.$dirty')
+										| State Pressure difference is required
+								.form-group
+									button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+							.col-sm-6
+								.form-group(ng-class="{ 'has-error' : newProject.relHumidity.$invalid && newProject.relHumidity.$dirty}")
+									label(
+									class='control-label',
+									for='relHumidity')
+										| Rel or Abs Humidity (F)
+									input#rel-abs-Humidity(
+									class='form-control',
+									type='text',
+									name='relHumidity',
+									ng-model='data.GasOperatingPoints.F',
+									placeholder='Enter Rel or Abs Humidity'
+									)
+									small.help-block(
+									ng-show='newProject.relHumidity.$invalid && newProject.relHumidity.$dirty')
+										| Rel or Abs Humidity is required
+
+								.form-group(ng-class="{ 'has-error' : newProject.normalDensity.$invalid && newProject.normalDensity.$dirty}")
+									label(
+									class='control-label',
+									for='normalDensity')
+										| Normal Density (Ro)
+									input#normalDensity(
+									class='form-control',
+									type='text',
+									name='normalDensity',
+									ng-readonly='chb.Ro',
+									ng-model='data.GasOperatingPoints.Ro',
+									placeholder='Enter Normal Density '
+									)
+									small.help-block(
+									ng-show='newProject.normalDensity.$invalid && newProject.normalDensity.$dirty')
+										| Normal Density is required
+								br
+								br
+								br
+								.form-group(ng-class="{ 'has-error' : newProject.altitude.$invalid && newProject.altitude.$dirty}")
+									label(
+									class='control-label',
+									for='altitude')
+										| Altitude (At)
+									.checkbox-inline
+										input(type='checkbox',ng-model='data.GasOperatingPoints.Atcheck')
+									input#altitude(
+									class='form-control',
+									type='text',
+									name='altitude',
+									ng-readonly='chb.At',
+									ng-model='data.GasOperatingPoints.Alt',
+									ng-change='calculateDensity()',
+									placeholder='Enter Altitude '
+									)
+									small.help-block(
+									ng-show='newProject.altitude.$invalid && newProject.altitude.$dirty')
+										| Altitude is required
+
+								.form-group(ng-class="{ 'has-error' : newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty}")
+									label(
+									class='control-label',
+									for='dynamicViscosity')
+										| Dynamic Viscosity (Vi)
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-readonly='true',
+									ng-model='data.GasOperatingPoints.Vi',
+									placeholder='Enter Dynamic Viscosity '
+									)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										| Dynamic Viscosity  is required
+								.form-group
+									button.btn.btn-warning(type='submit',ng-click='addOperatingPoint()') Add Operating point
+								.form-group
+									//button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+									button.btn.btn-primary.pull-right(href='#formCarousel',type='submit',data-slide='next') Next
+		.item
+			img(data-src='')
+			.container
+				.col-sm-8.col-sm-offset-2
+					.panel.panel-primary
+						.panel-heading
+							h3.panel-title.text-center Fan Assembling
+						.panel-body
+							.col-sm-8.col-sm-offset-2
+								.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+									label(
+									class='control-label',
+									for='selectPressure')
+										| Select Pressure
+
+									//select(ng-model='data.FanAssemblies.PressureDifference',class='form-control', ng-options='p.name for p in pressureDff')
+									select.form-control(ng-model='data.FanAssemblies.PressureDifference')
+										option(value='') Select Pressure..
+										option(value='0') Lines 0,3(Fan with Pressure Losses at both sides)
+										option(value='1') Lines 0,2(Fan with Pressure Losses at inlet)
+										option(value='2') Lines 1,3(Fan with Pressure Losses at outlet)
+										option(value='3') Lines 1,2(Only the Fan)
+									small.help-block(
+									ng-show='newProject.selectPressure.$invalid && newProject.selectPressure.$dirty')
+										| select Pressure is required
+								.form-group(ng-show='lines.onlyfan')
+									button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+									button.btn.btn-primary.pull-right(href='#formCarousel',type='submit',data-slide='next') Next
+						.panel-heading(ng-hide='lines.faninlet')
+							h3.panel-title.text-center Resistant Coefficients Inletside
+						.panel-body(ng-hide='lines.faninlet')
+							.col-sm-8.col-sm-offset-2
+								.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+									label(
+									class='control-label',
+									for='selectPressure')
+										| Inlet Sound Silencer
+									input(
+									class='form-control ',
+									type='text',
+									ng-model='data.FanAssemblies.InletSoundSilencer',
+									placeholder='Enter/Select Inlet Sound Silencer ')
+									//button.btn.btn-primary.btn-circle(type='button', ng-model='data.FanAssemblies.InletSoundSilencer', btn-radio='{{iss}}',ng-repeat='iss in InletSoundSilencer') {{iss}}
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletSoundSilencer",btn-radio="'0'") 0
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletSoundSilencer",btn-radio="'0.1'") 0.1
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletSoundSilencer",btn-radio="'0.2'") 0.2
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletSoundSilencer",btn-radio="'0.25'") 0.25
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletSoundSilencer",btn-radio="'0.3'") 0.3
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletSoundSilencer",btn-radio="'0.4'") 0.4
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletSoundSilencer",btn-radio="'0.5'") 0.5
+
+								.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+									label(
+									class='control-label',
+									for='selectPressure')
+										| Inlet Box
+									input(
+									class='form-control ',
+									type='text',
+									ng-model='data.FanAssemblies.InletBox',
+									placeholder='Enter/Select Inlet Box ')
+									//button.btn.btn-primary.btn-circle(type='button', ng-model='data.FanAssemblies.InletBox', btn-radio='{{ib}}',ng-repeat='ib in InletBox') {{ib}}
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletBox",btn-radio="'0'") 0
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletBox",btn-radio="'0.1'") 0.1
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletBox",btn-radio="'0.15'") 0.15
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletBox",btn-radio="'0.2'") 0.2
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletBox",btn-radio="'0.3'") 0.3
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletBox",btn-radio="'1'") 1
+
+								.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+									label(
+									class='control-label',
+									for='selectPressure')
+										| Other Inlet parts
+									input(
+									class='form-control ',
+									type='text',
+									ng-model='data.FanAssemblies.InletOtherParts',
+									placeholder='Enter/Select Other Inlet parts ')
+									//select.form-control(ng-model='data.FanAssemblies.InletOtherParts', ng-options='ip.name for ip in InletOtherParts')
+									//button.btn.btn-primary.btn-circle(type='button', ng-model='data.FanAssemblies.InletOtherParts', btn-radio='{{iop}}',ng-repeat='iop in InletOtherParts') {{iop}}
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletOtherParts",btn-radio="'0'") 0
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletOtherParts",btn-radio="'0.15'") 0.15
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.InletOtherParts",btn-radio="'0.20'") 0.20
+								.form-group(ng-show='lines.onlyinlet')
+									button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+									button.btn.btn-primary.pull-right(href='#formCarousel',type='submit',data-slide='next') Next
+
+						.panel-heading(ng-hide='lines.fanoutlet')
+							h3.panel-title.text-center Resistant Coefficients Outletside
+						.panel-body(ng-hide='lines.fanoutlet')
+							.col-sm-8.col-sm-offset-2
+								.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+									label(
+									class='control-label',
+									for='selectPressure')
+										| Inlet/Outlet Area Ratio
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.FanAssemblies.EvaseOutlet_InletAreaRatio',
+									placeholder='Enter Dynamic Viscosity ',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										| Inlet/Outlet Area Ratio  is required
+
+								.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+									label(
+									class='control-label',
+									for='selectPressure')
+										| Outlet Silencer
+									input(
+									class='form-control ',
+									type='text',
+									ng-model='data.FanAssemblies.OutletSilencer',
+									placeholder='Enter/Select Outlet Silencer ')
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.OutletSilencer",btn-radio="'0'") 0
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.OutletSilencer",btn-radio="'0.3'") 0.3
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.OutletSilencer",btn-radio="'0.4'") 0.4
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.OutletSilencer",btn-radio="'0.5'") 0.5
+
+								.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+									label(
+									class='control-label',
+									for='selectPressure')
+										| Other Outlet Parts
+									input(
+									class='form-control ',
+									type='text',
+									ng-model='data.FanAssemblies.OutletOtherParts',
+									placeholder='Enter/Select Other Outlet Parts ')
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.OutletOtherParts",btn-radio="'0'") 0
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.FanAssemblies.OutletOtherParts",btn-radio="'1'") 1
+
+								.form-group
+									button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+									button.btn.btn-primary.pull-right(href='#formCarousel',type='submit',data-slide='next') Next
+		.item
+			img(data-src='')
+			.container
+				.col-sm-8.col-sm-offset-2
+					.panel.panel-primary
+						.panel-heading
+							h3.panel-title.text-center Material Control
+						.panel-body
+							.col-sm-8.col-sm-offset-2
+								.form-group( ng-class="{'has-error':newProject.dat.$invalid&& newProject.date.$dirty}")
+									label(
+									class='control-label',
+									for='create-date') Inlet/Outlet Duct
+									select.form-control(ng-model='data.MaterialDriveControls.InletOutletDuct')
+										option(value='') Select duct..
+										option(value='0') Free inlet,ducted outlet
+										option(value='1') Free outlet,ducted inlet
+										option(value='2') Ducted inlet and outlet
+								.form-group(ng-class="{ 'has-error' : newProject.engineers.$invalid && newProject.engineers.$dirty }",class='has-feedback')
+									label(
+									class='control-label',
+									for='engineer') Single/Double Width
+									br
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.Width",btn-radio="'1'") Single
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.Width",btn-radio="'2'") Double
+
+								.form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+									label(
+									class='control-label',
+									for='project-name') Control
+									select.form-control(ng-model='data.MaterialDriveControls.Control',placeholder='Select value')
+										option(value='') Select Control..
+										option(value='0') Speed Control
+										option(value='1') Inlet Vane Control
+										option(value='2') Dumper Control
+
+								.form-group(ng-show='data.MaterialDriveControls.IVCPosition')
+									label(
+									class='control-label',
+									for='order-no') IVC Position at design load 90c
+									.checkbox-inline
+										input(type='checkbox',ng-model='data.MaterialDriveControls.IVCPosition')
+								.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Mechanical Design Temperature[Degrees C]
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.MaterialDriveControls.MechanicalDesignTemperature',
+									placeholder='Enter Dynamic Viscosity ',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscossity.$dirty')
+										|  Mechanical Design Temperature[Degrees C] is required
+								.form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+									label(
+									class='control-label',
+									for='project-name') Drive
+									br
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.Drive",btn-radio="'K'") V-Belt
+									button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.Drive",btn-radio="'D'") Direct
+
+
+
+								//.form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+								//	label(
+								//	class='control-label',
+								//	for='project-name') Drive
+								//	br
+								//	button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.Drive",btn-radio="'K'") V-Belt
+								//	button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.Drive",btn-radio="'D'") Direct
+
+								.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Standard Impeller Material
+									input.checkbox-inline(type='checkbox',ng-model='data.MaterialDriveControls.StandardImpellerMaterial')
+								hr
+								.form-group(ng-hide='data.MaterialDriveControls.StandardImpellerMaterial',ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Material Name
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.MaterialDriveControls.MaterialName',
+									placeholder='Enter Material Name ',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										|  Material Name is required
+								.form-group(ng-hide='data.MaterialDriveControls.StandardImpellerMaterial',ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Material Density[kg/dm*3]
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.MaterialDriveControls.MaterialDensity',
+									placeholder='Enter Material Density ',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										|  Material Density is required
+								.form-group(ng-hide='data.MaterialDriveControls.StandardImpellerMaterial',ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Material Yield Strength[N/mm*2]
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.MaterialDriveControls.MaterialYieldStrength',
+									placeholder='Enter Material Yield Strength',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										|  Material Yield Strength[N/mm*2] is required
+
+								.form-group(ng-hide='data.MaterialDriveControls.direct')
+									label(
+									class='control-label',
+									for='order-no') IEC Standard Motor
+									.checkbox-inline
+										input(type='checkbox',ng-model='data.MaterialDriveControls.IECStandardMotor')
+								.form-group(ng-hide='data.MaterialDriveControls.direct')
+									label(
+									class='control-label',
+									for='project-name') Nominal Motor Speed
+									select.form-control(ng-model='data.MaterialDriveControls.NominalMotorSpeed',placeholder='Select value')
+										option(value='') Select Control..
+										option(value='0') 3000 rpm
+										option(value='1') 1500 rpm
+										option(value='2') 1000 rpm
+										option(value='3') 750 rpm
+								.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Noises Data Required
+									.checkbox-inline
+										input(type='checkbox')
+								.form-group
+									button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+								.form-group
+									button.btn.btn-primary.pull-right(href='#formCarousel',type='submit',data-slide='next') Next
+
+		.item
+			img(data-src='')
+			.container
+				.col-sm-8.col-sm-offset-2
+					.panel.panel-primary
+						.panel-heading
+							h3.panel-title.text-center Noises Data
+						.panel-body
+							.col-sm-8.col-sm-offset-2
+								.form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+									label(
+									class='control-label',
+									for='project-name') Fan Location
+									select.form-control(ng-model='data.Noises.FanLocation')
+										option(value='') Select Fan Location..
+										option(value='0') Center of the room
+										option(value='1') Center of the wall
+										option(value='2') Center of the corner
+								.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Absorption area of room
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.Noises.RoomAbsorptionArea',
+									placeholder='Enter Absorption area of room[m*2sabin]',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										| Absorption area of roomis required
+								.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Background Noise corrections
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.Noises.BackgroundNoiseCorrection',
+									placeholder='Enter Background Noise corrections k1*k2[db]',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										|  Background Noise corrections is required
+								.form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+									label(
+									class='control-label',
+									for='project-name') Design
+									select.form-control(ng-model='data.Noises.Design')
+										option(value='') Select Design
+										option(value='0') RU/RE[single inlet ducted/with intake notzle]
+										option(value='1') RS[single inlet with intake box]
+										option(value='2') ZE[double inlet with inlet notzle]
+										option(value='3') ZS[double inlet with intake box]
+								.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Housing Metal place thickness[mm]
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.Noises.HousingMetalPlateThickness',
+									placeholder='Enter Housing Metal place thickness',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										| Housing Metal place thickness is required
+								.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+									label(
+									class='control-label',
+									for='order-no') Distance between stiffners 2a[mm]
+									input#dynamicViscosity(
+									class='form-control ',
+									type='text',
+									name='dynamicViscosity',
+									ng-model='data.Noises.DistanceBetweenStiffners',
+									placeholder='Enter Distance between stiffner',
+									required)
+									small.help-block(
+									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+										| Distance between stiffners 2a is required
+								.form-group(ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+									label(
+									class='control-label',
+									for='project-name') Housing Material
+									select.form-control(ng-model='data.Noises.HousingMaterial')
+										option(value="") Select Housing Material..
+										option(value='0') Steel,Alu. or stainless steel plate
+										option(value='1') Steel plate rubberized
+								.form-group
+									button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+									button.btn.btn-primary.pull-right(type='button',ng-click='createProject(data)') Submit
+
+
+

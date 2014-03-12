@@ -1,0 +1,34 @@
+div(class='col-sm-5 col-sm-offset-4')
+	#login
+		h3.text-center Welcome to Reitz India
+		form#login-form.form(ng-submit='customerViews()',name='loginForm',novalidate)
+			.form-group.text-center(ng-class="{ 'has-error' : loginForm.login.$invalid }")
+				label.radio-inline
+					input#inlineradio1(type='radio', value='employer',name='login',ng-model='user',required)
+					| Employee
+				label.radio-inline
+					input#inlineradio2(type='radio', value='customer',name='login',ng-model='user',required)
+					| Customer
+			.form-group(ng-class="{ 'has-error' : loginForm.username.$invalid }")
+				label.control-label(for='login-username') Username
+				.input-group
+					span.input-group-addon
+						i(class='glyphicon glyphicon-user')
+					input#login-username.form-control(type='text',ng-model='username',name='username', placeholder='Username',required)
+				small(
+				class="help-block",
+				ng-show="loginForm.username.$invalid && loginForm.username.$dirty") username required
+			.form-group(ng-class="{ 'has-error' : loginForm.password.$invalid }")
+				label.control-label(for='login-password') Password
+				.input-group
+					span.input-group-addon
+						i(class='glyphicon glyphicon-eye-close')
+					input#login-pasword.form-control(type='password',ng-model='password',name='password', placeholder='Password',required)
+				small(
+				class="help-block",
+				ng-show="loginForm.password.$invalid && loginForm.password.$dirty") password required
+			.form-group
+				button#login-btn.btn.btn-primary.btn-block(type='submit',ng-disabled="loginForm.$invalid") Sign in
+
+
+

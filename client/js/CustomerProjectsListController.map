@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "CustomerProjectsListController.js",
+  "sourceRoot": "",
+  "sources": [
+    "CustomerProjectsListController.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,CAC6C,GAD5C,CAAO,EACsC,CAD9C,sBAAA;CAAA"
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "CustomerHomeController.js",
+  "sourceRoot": "",
+  "sources": [
+    "CustomerHomeController.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,CACqC,GADpC,CAAO,EAC8B,CADtC,cAAA;CAEI,EAAwB,CAAxB,EAAM,GAAkB,KAAxB;CACU,EAAR,IAAO,EAAU,IAAjB;CADF,IAAwB;CAEjB,EAAiB,GAAlB,GAAkB,EAAxB,GAAA;CACY,EAAV,MAAS,IAAT;CAJ+B,IAGT;CAJ5B,EACqC;CADrC"
+}

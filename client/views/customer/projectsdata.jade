@@ -1,0 +1,63 @@
+.container
+	.col-sm-8.col-sm-offset-2
+		.panel.panel-primary
+			.panel-heading
+				h3.panel-title Project Data
+			.panel-body
+				.col-sm-8.col-sm-offset-2
+					.form-group( ng-class="{'has-error':newProject.dat.$invalid&& newProject.dat.$dirty}")
+						label(
+						class='control-label',
+						for='create-date') Date
+						input#create-date(
+						class='form-control',
+						type='date',
+						name='dat',
+						ng-model='projectdata.Date',
+						placeholder='Enter Date',
+						required)
+						small(
+						class='help-block',
+						ng-show='newProject.dat.$invalid && newProject.dat.$dirty') Date is required
+					.form-group(ng-class="{ 'has-error' : newProject.engineers.$invalid && newProject.engineers.$dirty }",class='has-feedback')
+						label(
+						class='control-label',
+						for='engineer') Engineer Name
+						input#engineer(
+						class='form-control',
+						type='text',
+						name='engineers',
+						ng-model='projectdata.Engineer',
+						required,
+						placeholder='Enter Engineer name',
+						pattern='[a-z]')
+						small.help-block(
+						ng-show='newProject.engineers.$invalid && newProject.engineers.$dirty') Engineer Name is required
+					.form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+						label(
+						class='control-label',
+						for='project-name') Project Name
+						input#project-name(
+						class='form-control',
+						type='text',
+						name='projectName',
+						ng-model='projectdata.ProjectName',
+						placeholder='Enter Project Name ',
+						required)
+						small.help-block(
+						ng-show='newProject.projectName.$invalid && newProject.projectName.$dirty') Project Name is required
+					.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+						label(
+						class='control-label',
+						for='order-no') Proposal / Order No.
+						input#order-no(
+						class='form-control',
+						type='text',
+						name='orderNo',
+						ng-model='projectdata.Proposal_OrderNo',
+						placeholder='Enter Proposal number',
+						required)
+						small.help-block(
+						ng-show='newProject.orderNo.$invalid && newProject.orderNo.$dirty') Proposal No. is required
+					.form-group
+						button.next.btn.btn-primary.pull-right(ng-click='projectData(projectdata)') Next

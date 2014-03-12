@@ -1,0 +1,66 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/client/views/customer/projectservice.js" />
+        <item url="file://$PROJECT_DIR$/client/js/NewProjectController.js" />
+        <item url="file://$PROJECT_DIR$/client/js/app.js" />
+        <item url="file://$PROJECT_DIR$/client/js/HomeController.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app/client/dependencies.js" />
+        <item url="file://$PROJECT_DIR$/client/js/CustomerProjectsListController.js" />
+        <item url="file://$PROJECT_DIR$/client/js/controller.js" />
+        <item url="file://$PROJECT_DIR$/client/js/CustomerHomeController.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app/client/app.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app/server/index.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app/shared/helpers.js" />
+        <item url="file://$PROJECT_DIR$/client/js/LoginSerive.js" />
+        <item url="file://$PROJECT_DIR$/server.js" />
+        <item url="file://$PROJECT_DIR$/server/routes.js" />
+        <item url="file://$PROJECT_DIR$/server/apis.js" />
+        <item url="file://$PROJECT_DIR$/client/lib/ng-table/Gruntfile.js" />
+        <item url="file://$PROJECT_DIR$/client/js/DataDropdownValues.js" />
+        <item url="file://$PROJECT_DIR$/client/js/ChartService.js" />
+        <item url="file://$PROJECT_DIR$/client/js/CustomerLoginController.js" />
+        <item url="file://$PROJECT_DIR$/client/js/EnterKeyDirective.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/views/server/remy.js" />
+        <item url="file://$PROJECT_DIR$/client/js/ProjectDataService.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/213.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/config/remy.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/Gruntfile.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/client/js/ButtonsRadioDirective.js" />
+      <root url="file://$PROJECT_DIR$/views/customer/projectservice.js" />
+      <root url="file://$PROJECT_DIR$/client/js/BarChartController.js" />
+      <root url="file://$PROJECT_DIR$/client/views/customer/projectservice.js" />
+      <root url="file://$PROJECT_DIR$/client/js/NewProjectController.js" />
+      <root url="file://$PROJECT_DIR$/client/js/app.js" />
+      <root url="file://$PROJECT_DIR$/client/js/HomeController.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app/client/dependencies.js" />
+      <root url="file://$PROJECT_DIR$/client/js/CustomerProjectsListController.js" />
+      <root url="file://$PROJECT_DIR$/client/js/controller.js" />
+      <root url="file://$PROJECT_DIR$/client/js/CustomerHomeController.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app/client/app.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app/server/index.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app/shared/helpers.js" />
+      <root url="file://$PROJECT_DIR$/client/js/LoginSerive.js" />
+      <root url="file://$PROJECT_DIR$/server.js" />
+      <root url="file://$PROJECT_DIR$/server/routes.js" />
+      <root url="file://$PROJECT_DIR$/server/apis.js" />
+      <root url="file://$PROJECT_DIR$/client/lib/ng-table/Gruntfile.js" />
+      <root url="file://$PROJECT_DIR$/client/js/DataDropdownValues.js" />
+      <root url="file://$PROJECT_DIR$/client/js/ChartService.js" />
+      <root url="file://$PROJECT_DIR$/client/js/CustomerLoginController.js" />
+      <root url="file://$PROJECT_DIR$/client/js/EnterKeyDirective.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/views/server/remy.js" />
+      <root url="file://$PROJECT_DIR$/client/js/ProjectDataService.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/213.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/config/remy.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/Gruntfile.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/tmp/express-boilerplate/app.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
