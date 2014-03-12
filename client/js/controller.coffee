@@ -5,6 +5,7 @@
 
     $scope.loading = true
     $scope.colors = chartService.colors
+    $scope.da= null
     $scope.updated = {
       backPlate:0
       shroudPlate:0
@@ -25,10 +26,11 @@
       console.log $scope.row.OuterBladeDiameter
       selected = data.color.name.split('-')
       factor = data.color.factor.split('-')
-      $scope.updated.backPlate =2*(parseFloat(selected[0]) * parseFloat(factor[0]) * $scope.row.OuterBladeDiameter)
-      $scope.updated.shroudPlate =2*(parseFloat(selected[1]) * parseFloat(factor[1])  * $scope.row.OuterBladeDiameter)
-      $scope.updated.blades =2*(parseFloat(selected[2]) * parseFloat(factor[2])  * $scope.row.OuterBladeDiameter)
-      $scope.updated.hub =2*(parseFloat(selected[0]) * data.color.hub * $scope.row.OuterBladeDiameter)
+      dia = Math.pow $scope.row.OuterBladeDiameter,2
+      $scope.updated.backPlate =2*(parseFloat(selected[0]) * parseFloat(factor[0]) * dia)
+      $scope.updated.shroudPlate =2*(parseFloat(selected[1]) * parseFloat(factor[1])  * dia)
+      $scope.updated.blades =2*(parseFloat(selected[2]) * parseFloat(factor[2])  * dia)
+      $scope.updated.hub =2*(parseFloat(selected[0]) * data.color.hub * dia)
 
     generateChart = (result)->
       series = []

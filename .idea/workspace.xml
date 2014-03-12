@@ -23,19 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="controller.coffee" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controller.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/controller.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="103" selection-start="14827" selection-end="14827" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="2232">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="387">
+            <state line="7" column="19" selection-start="14377" selection-end="14377" vertical-scroll-proportion="0.21799308" vertical-offset="0" max-vertical-offset="2268">
               <folding />
             </state>
           </provider>
@@ -80,8 +71,8 @@
         <option value="$PROJECT_DIR$/client/js/NewProjectController.coffee" />
         <option value="$PROJECT_DIR$/client/js/ProjectDataService.coffee" />
         <option value="$PROJECT_DIR$/client/views/customer/resultview.jade" />
-        <option value="$PROJECT_DIR$/client/js/controller.coffee" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/client/js/controller.coffee" />
       </list>
     </option>
   </component>
@@ -233,7 +224,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30112723" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -535,6 +526,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="387">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/customer/resultview.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="87" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2790">
@@ -544,14 +542,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/controller.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="103" selection-start="14827" selection-end="14827" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="2232">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="387">
+        <state line="7" column="19" selection-start="14377" selection-end="14377" vertical-scroll-proportion="0.21799308" vertical-offset="0" max-vertical-offset="2268">
           <folding />
         </state>
       </provider>
