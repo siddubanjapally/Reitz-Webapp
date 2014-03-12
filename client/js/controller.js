@@ -5,17 +5,12 @@
     $scope.result = [];
     $scope.loading = true;
     $scope.colors = chartService.colors;
-    $scope.da = null;
     $scope.updated = {
       backPlate: 0,
       shroudPlate: 0,
       blades: 0,
       hub: 0
     };
-    /*$scope.getSeries = (rivent)->
-      $scope.obj = rivent
-    */
-
     $scope.getRow = function(data) {
       console.log(data);
       return $scope.row = data;

@@ -26,7 +26,7 @@
       <file leaf-file-name="controller.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/controller.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="19" selection-start="14377" selection-end="14377" vertical-scroll-proportion="0.21799308" vertical-offset="0" max-vertical-offset="2268">
+            <state line="3" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="0.140625" vertical-offset="0" max-vertical-offset="2160">
               <folding />
             </state>
           </provider>
@@ -224,7 +224,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30112723" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31239936" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -542,7 +542,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/controller.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="19" selection-start="14377" selection-end="14377" vertical-scroll-proportion="0.21799308" vertical-offset="0" max-vertical-offset="2268">
+        <state line="3" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="0.140625" vertical-offset="0" max-vertical-offset="2160">
           <folding />
         </state>
       </provider>
