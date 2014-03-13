@@ -9,38 +9,36 @@
       blades:0
       hub:0
     }
-    $scope.da = null
     $scope.getRow = (data) ->
-      console.log data
       $scope.row= data
     $scope.color = $scope.colors[2]
     $scope.changeDia =(data)->
-      console.log typeof(data.FanSpeed)
-      $scope.row.OuterBladeDiameter = ($scope.row.FanSpeed/data.FanSpeed)*$scope.row.OuterBladeDiameter
+      $scope.row.OuterBladeDiameter =Math.ceil ($scope.row.FanSpeed/data.FanSpeed)*$scope.row.OuterBladeDiameter
     $scope.selectedPlate = (data)->
-      console.log $scope.row.OuterBladeDiameter
+      console.log chartService.postdata
       selected = data.color.name.split('-')
       factor = data.color.factor.split('-')
-      dia = Math.pow $scope.row.OuterBladeDiameter,2
-      $scope.updated.backPlate =2*(parseFloat(selected[0]) * parseFloat(factor[0]) * dia)
-      $scope.updated.shroudPlate =2*(parseFloat(selected[1]) * parseFloat(factor[1])  * dia)
-      $scope.updated.blades =2*(parseFloat(selected[2]) * parseFloat(factor[2])  * dia)
-      $scope.updated.hub =2*(parseFloat(selected[0]) * data.color.hub * dia)
+      dia = Math.pow ($scope.row.OuterBladeDiameter/1000),2
+      $scope.updated.backPlate = +chartService.postdata.MaterialDriveControls.Width*(parseFloat(selected[0]) * parseFloat(factor[0]) * dia)
+      $scope.updated.shroudPlate = +chartService.postdata.MaterialDriveControls.Width*(parseFloat(selected[1]) * parseFloat(factor[1])  * dia)
+      $scope.updated.blades = +chartService.postdata.MaterialDriveControls.Width*(parseFloat(selected[2]) * parseFloat(factor[2])  * dia)
+      $scope.updated.hub = +chartService.postdata.MaterialDriveControls.Width*(parseFloat(selected[0]) * data.color.hub * dia)
 
     generateChart = (result)->
-      series = []
-      speed = []
-      efficiency = []
-      shaftPower = []
-      nomenclature=[]
-      nominalsize = []
+      chartData =
+        series : []
+        speed : []
+        efficiency : []
+        shaftPower : []
+        nomenclature:[]
+        nominalsize : []
       _.map(_.range(10),(i)->
-        series.push result[i].Series
-        speed.push result[i].FanSpeed
-        efficiency.push result[i].Efficiency
-        shaftPower.push result[i].FanShaftPower
-        nominalsize.push result[i].NominalSize
-        nomenclature.push result[i].Nomenclature
+        chartData.series.push result[i].Series
+        chartData.speed.push result[i].FanSpeed
+        chartData.efficiency.push result[i].Efficiency
+        chartData.shaftPower.push result[i].FanShaftPower
+        chartData.nominalsize.push result[i].NominalSize
+        chartData.nomenclature.push result[i].Nomenclature
       )
       $scope.renderChart = {
         barChart:
@@ -49,8 +47,8 @@
           title:
             text: 'Ri-vent'
           xAxis:
-            categories: series
-          series: [{name:"Speed",data: speed},{name:"Efficiency",data:efficiency},{name:"Fan Shaft Power",data:shaftPower}]
+            categories: chartData.series
+          series: [{name:"Speed",data: chartData.speed},{name:"Efficiency",data:chartData.efficiency},{name:"Fan Shaft Power",data:chartData.shaftPower}]
           legend:
             enabled: true
         lineChart:
@@ -59,10 +57,10 @@
           title:
             text: 'Ri-vent'
           xAxis:
-            categories: speed
+            categories: chartData.speed
           yAxis:
-            categories: efficiency
-          series: [{name:"Nomenclature",data: nomenclature},{name:"Efficiency",data:efficiency}]
+            categories: chartData.efficiency
+          series: [{name:"Nomenclature",data: chartData.nomenclature},{name:"Efficiency",data:chartData.efficiency}]
           legend:
             enabled: true
       }

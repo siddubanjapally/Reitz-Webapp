@@ -23,10 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="controller.coffee" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="controller.coffee" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/controller.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="20" selection-start="319" selection-end="319" vertical-scroll-proportion="0.515625" vertical-offset="0" max-vertical-offset="2178">
+            <state line="19" column="43" selection-start="695" selection-end="695" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2142">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectDataService.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/ProjectDataService.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="151" column="20" selection-start="5391" selection-end="5391" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4986">
               <folding />
             </state>
           </provider>
@@ -35,16 +44,25 @@
       <file leaf-file-name="resultview.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/views/customer/resultview.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="87" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2790">
+            <state line="134" column="65" selection-start="5407" selection-end="5407" vertical-scroll-proportion="0.0" vertical-offset="293" max-vertical-offset="2790">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewProjectController.coffee" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ChartService.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/ChartService.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="27" selection-start="846" selection-end="846" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1674">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewProjectController.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/NewProjectController.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="56" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1674">
+            <state line="8" column="21" selection-start="516" selection-end="516" vertical-scroll-proportion="-2.092965" vertical-offset="977" max-vertical-offset="1530">
               <folding />
             </state>
           </provider>
@@ -67,12 +85,12 @@
         <option value="$PROJECT_DIR$/client/views/index.jade" />
         <option value="$PROJECT_DIR$/client/js/app.coffee" />
         <option value="$PROJECT_DIR$/server/routes.coffee" />
-        <option value="$PROJECT_DIR$/client/js/ChartService.coffee" />
-        <option value="$PROJECT_DIR$/client/js/NewProjectController.coffee" />
         <option value="$PROJECT_DIR$/client/js/ProjectDataService.coffee" />
         <option value="$PROJECT_DIR$/client/views/customer/resultview.jade" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/client/js/controller.coffee" />
+        <option value="$PROJECT_DIR$/client/js/NewProjectController.coffee" />
+        <option value="$PROJECT_DIR$/client/js/ChartService.coffee" />
       </list>
     </option>
   </component>
@@ -108,7 +126,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -123,19 +140,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ReitzIndia_Node" />
+              <option name="myItemId" value="reitzindiawebapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ReitzIndia-Web" />
-    <property name="options.lastSelected" value="JavaScript.Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="options.lastSelected" value="settings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -218,16 +236,22 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17918622" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3035994" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268921" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31239936" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959743" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -247,25 +271,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/js/ProjectDataService.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="21" selection-start="1552" selection-end="1552" vertical-scroll-proportion="0.0" vertical-offset="4428" max-vertical-offset="5058" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/NewProjectController.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="7" selection-start="2132" selection-end="2132" vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="1746">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/controller.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="3018" selection-end="3018" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576" />
@@ -414,11 +419,6 @@
         <state line="15" column="19" selection-start="292" selection-end="292" vertical-scroll-proportion="0.73170733" vertical-offset="0" max-vertical-offset="432" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/customer/customerlogin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="356" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/customer/customerlogin.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="38" selection-start="848" selection-end="848" vertical-scroll-proportion="0.39325842" vertical-offset="256" max-vertical-offset="612" />
@@ -444,11 +444,6 @@
         <state line="6" column="63" selection-start="291" selection-end="291" vertical-scroll-proportion="0.09137056" vertical-offset="54" max-vertical-offset="756" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/customer/projectData.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="314" column="58" selection-start="14133" selection-end="14133" vertical-scroll-proportion="-7.72093" vertical-offset="8640" max-vertical-offset="11340" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/customer/newproject.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="386" />
@@ -461,19 +456,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/routes.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/app.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="31" selection-start="733" selection-end="733" vertical-scroll-proportion="0.54063606" vertical-offset="0" max-vertical-offset="566" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/apis.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="3" selection-start="3332" selection-end="3332" vertical-scroll-proportion="0.34256056" vertical-offset="0" max-vertical-offset="578" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/ChartService.map">
@@ -484,65 +472,99 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="524" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/ProjectDataService.coffee">
+    <entry file="file://$PROJECT_DIR$/client/js/ProjectDataService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="260" column="33" selection-start="9685" selection-end="9685" vertical-scroll-proportion="1.1272085" vertical-offset="4042" max-vertical-offset="4986">
+        <state line="11" column="20" selection-start="440" selection-end="440" vertical-scroll-proportion="0.358047" vertical-offset="0" max-vertical-offset="8226" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/customer/newproject.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="38" selection-start="215" selection-end="215" vertical-scroll-proportion="0.21799308" vertical-offset="0" max-vertical-offset="4950" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="387" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/customer/customerlogin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="72" selection-start="0" selection-end="1336" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="526" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/result.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.0529248" vertical-offset="378" max-vertical-offset="41454">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/ChartService.coffee">
+    <entry file="file://$PROJECT_DIR$/client/js/CustomerProjectsListController.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="81" selection-start="207" selection-end="207" vertical-scroll-proportion="0.19081272" vertical-offset="0" max-vertical-offset="566">
+        <state line="1" column="30" selection-start="55" selection-end="55" vertical-scroll-proportion="0.041284405" vertical-offset="0" max-vertical-offset="436">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/home.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="23" selection-start="653" selection-end="653" vertical-scroll-proportion="0.30260047" vertical-offset="106" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="21" selection-start="93" selection-end="93" vertical-scroll-proportion="0.09137056" vertical-offset="0" max-vertical-offset="591">
+        <state line="26" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="1.231579" vertical-offset="0" max-vertical-offset="576">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/ProjectDataService.js">
+    <entry file="file://$PROJECT_DIR$/server/apis.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="440" selection-end="440" vertical-scroll-proportion="0.358047" vertical-offset="0" max-vertical-offset="8226">
+        <state line="9" column="33" selection-start="3307" selection-end="3307" vertical-scroll-proportion="0.4414169" vertical-offset="0" max-vertical-offset="396">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/customer/newproject.jade">
+    <entry file="file://$PROJECT_DIR$/client/views/customer/projectData.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="38" selection-start="215" selection-end="215" vertical-scroll-proportion="0.21799308" vertical-offset="0" max-vertical-offset="4950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/NewProjectController.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="56" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1674">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="387">
+        <state line="314" column="58" selection-start="14133" selection-end="14133" vertical-scroll-proportion="11.801021" vertical-offset="1026" max-vertical-offset="11340">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/customer/resultview.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="87" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2790">
+        <state line="134" column="65" selection-start="5407" selection-end="5407" vertical-scroll-proportion="0.0" vertical-offset="293" max-vertical-offset="2790">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/controller.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="319" selection-end="319" vertical-scroll-proportion="0.515625" vertical-offset="0" max-vertical-offset="2178">
+        <state line="19" column="43" selection-start="695" selection-end="695" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/ProjectDataService.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="20" selection-start="5391" selection-end="5391" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/ChartService.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="27" selection-start="846" selection-end="846" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1674">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/NewProjectController.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="21" selection-start="516" selection-end="516" vertical-scroll-proportion="-2.092965" vertical-offset="977" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>

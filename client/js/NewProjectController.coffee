@@ -2,14 +2,11 @@
 .controller 'NewProjectController',($scope,$location,projectservice,chartService)->
     $scope.mode = 0
     $scope.data = projectservice.data
-    $scope.$watch 'data.MaterialDriveControls.MechanicalDesignTemperature',( ->
-      if $scope.data.MaterialDriveControls.MechanicalDesignTemperature > 350
-        $scope.data.MaterialDriveControls.StandardImpellerMaterial = false
-      else
-        $scope.data.MaterialDriveControls.StandardImpellerMaterial = true
+    $scope.$watch 'data.MaterialDriveControls.MechanicalDesignTemperature > 350',( (value)->
+      if value then $scope.data.MaterialDriveControls.StandardImpellerMaterial = false else $scope.data.MaterialDriveControls.StandardImpellerMaterial = true
     ),true
-    $scope.$watch 'data.MaterialDriveControls.Drive',(->
-      if $scope.data.MaterialDriveControls.Drive is "K"
+    $scope.$watch 'data.MaterialDriveControls.Drive ',( (value)->
+      if value is "K"
         $scope.data.MaterialDriveControls.direct = true
         $scope.data.MaterialDriveControls.IECStandardMotor = false
       else
@@ -17,11 +14,11 @@
         $scope.data.MaterialDriveControls.IECStandardMotor = true
     ),true
 
-    $scope.$watch 'data.GasOperatingPoints.T',(  ->
-      $scope.data.GasOperatingPoints.Vi = projectservice.density($scope.data.GasOperatingPoints.T)
+    $scope.$watch 'data.GasOperatingPoints.T',( (value)->
+      $scope.data.GasOperatingPoints.Vi = projectservice.density(value)
     ), true
-    $scope.$watch 'data.MaterialDriveControls.Control',(  ->
-      if $scope.data.MaterialDriveControls.Control is "1"
+    $scope.$watch 'data.MaterialDriveControls.Control ',( (value)->
+      if value is "1"
         $scope.data.MaterialDriveControls.IVCPosition = true
       else
         $scope.data.MaterialDriveControls.IVCPosition = false
@@ -34,8 +31,9 @@
     }
     $scope.chb ={At:true,Ro:false}
 
-    $scope.$watch 'data.GasOperatingPoints.Atcheck',( ->
-      if $scope.data.GasOperatingPoints.Atcheck
+    $scope.$watch 'data.GasOperatingPoints.Atcheck',( (value)->
+      console.log value
+      if value
         $scope.chb.At = false
         $scope.chb.Ro = true
         $scope.data.GasOperatingPoints.Alt = null
@@ -44,17 +42,17 @@
         $scope.chb.Ro = false
         $scope.data.GasOperatingPoints.Ro = null
     ),true
-    $scope.$watch 'data.FanAssemblies.PressureDifference',( ->
-      if $scope.data.FanAssemblies.PressureDifference is '1'
+    $scope.$watch 'data.FanAssemblies.PressureDifference',( (value)->
+      if value is '1'
         $scope.lines.fanoutlet = true
         $scope.lines.faninlet = false
         $scope.lines.onlyinlet = true
         $scope.lines.onlyfan = false
-      else if $scope.data.FanAssemblies.PressureDifference is '2'
+      else if value is '2'
         $scope.lines.faninlet = true
         $scope.lines.fanoutlet = false
         $scope.lines.onlyfan = false
-      else if $scope.data.FanAssemblies.PressureDifference is '3'
+      else if value is '3'
         $scope.lines.fanoutlet = true
         $scope.lines.faninlet = true
         $scope.lines.onlyfan = true
@@ -71,13 +69,7 @@
       $location.path '/chartview'
     $scope.addOperatingPoint = ()->
       $scope.data.GOPoints.push($scope.data.GasOperatingPoints)
-      $scope.data.GasOperatingPoints = {T:0}
-    $scope.calculateVp = ()->
-      #condition = $scope.data.flowrate.Vp
-      #operate = $scope.data.GasOperatingPoints.Vp
-    $scope.CalcNormalDensity =()->
-      #condition = $scope.data.flowrate.pres
-      #operate = $scope.data.GasOperatingPoints.Dpt
+      $scope.data.GasOperatingPoints = {T:0,P1:0,F:0}
     $scope.calculateDensity =()->
       condition = $scope.data.GasDatas.DptUnits
       operate = $scope.data.GasOperatingPoints.Dpt

@@ -3,15 +3,15 @@
   (angular.module('reitz')).controller('NewProjectController', function($scope, $location, projectservice, chartService) {
     $scope.mode = 0;
     $scope.data = projectservice.data;
-    $scope.$watch('data.MaterialDriveControls.MechanicalDesignTemperature', (function() {
-      if ($scope.data.MaterialDriveControls.MechanicalDesignTemperature > 350) {
+    $scope.$watch('data.MaterialDriveControls.MechanicalDesignTemperature > 350', (function(value) {
+      if (value) {
         return $scope.data.MaterialDriveControls.StandardImpellerMaterial = false;
       } else {
         return $scope.data.MaterialDriveControls.StandardImpellerMaterial = true;
       }
     }), true);
-    $scope.$watch('data.MaterialDriveControls.Drive', (function() {
-      if ($scope.data.MaterialDriveControls.Drive === "K") {
+    $scope.$watch('data.MaterialDriveControls.Drive ', (function(value) {
+      if (value === "K") {
         $scope.data.MaterialDriveControls.direct = true;
         return $scope.data.MaterialDriveControls.IECStandardMotor = false;
       } else {
@@ -19,11 +19,11 @@
         return $scope.data.MaterialDriveControls.IECStandardMotor = true;
       }
     }), true);
-    $scope.$watch('data.GasOperatingPoints.T', (function() {
-      return $scope.data.GasOperatingPoints.Vi = projectservice.density($scope.data.GasOperatingPoints.T);
+    $scope.$watch('data.GasOperatingPoints.T', (function(value) {
+      return $scope.data.GasOperatingPoints.Vi = projectservice.density(value);
     }), true);
-    $scope.$watch('data.MaterialDriveControls.Control', (function() {
-      if ($scope.data.MaterialDriveControls.Control === "1") {
+    $scope.$watch('data.MaterialDriveControls.Control ', (function(value) {
+      if (value === "1") {
         return $scope.data.MaterialDriveControls.IVCPosition = true;
       } else {
         return $scope.data.MaterialDriveControls.IVCPosition = false;
@@ -39,8 +39,9 @@
       At: true,
       Ro: false
     };
-    $scope.$watch('data.GasOperatingPoints.Atcheck', (function() {
-      if ($scope.data.GasOperatingPoints.Atcheck) {
+    $scope.$watch('data.GasOperatingPoints.Atcheck', (function(value) {
+      console.log(value);
+      if (value) {
         $scope.chb.At = false;
         $scope.chb.Ro = true;
         return $scope.data.GasOperatingPoints.Alt = null;
@@ -50,17 +51,17 @@
         return $scope.data.GasOperatingPoints.Ro = null;
       }
     }), true);
-    $scope.$watch('data.FanAssemblies.PressureDifference', (function() {
-      if ($scope.data.FanAssemblies.PressureDifference === '1') {
+    $scope.$watch('data.FanAssemblies.PressureDifference', (function(value) {
+      if (value === '1') {
         $scope.lines.fanoutlet = true;
         $scope.lines.faninlet = false;
         $scope.lines.onlyinlet = true;
         return $scope.lines.onlyfan = false;
-      } else if ($scope.data.FanAssemblies.PressureDifference === '2') {
+      } else if (value === '2') {
         $scope.lines.faninlet = true;
         $scope.lines.fanoutlet = false;
         return $scope.lines.onlyfan = false;
-      } else if ($scope.data.FanAssemblies.PressureDifference === '3') {
+      } else if (value === '3') {
         $scope.lines.fanoutlet = true;
         $scope.lines.faninlet = true;
         return $scope.lines.onlyfan = true;
@@ -79,11 +80,11 @@
     $scope.addOperatingPoint = function() {
       $scope.data.GOPoints.push($scope.data.GasOperatingPoints);
       return $scope.data.GasOperatingPoints = {
-        T: 0
+        T: 0,
+        P1: 0,
+        F: 0
       };
     };
-    $scope.calculateVp = function() {};
-    $scope.CalcNormalDensity = function() {};
     return $scope.calculateDensity = function() {
       var Alt, T, condition, operate;
       condition = $scope.data.GasDatas.DptUnits;

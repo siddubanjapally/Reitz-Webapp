@@ -11,42 +11,41 @@
       blades: 0,
       hub: 0
     };
-    $scope.da = null;
     $scope.getRow = function(data) {
-      console.log(data);
       return $scope.row = data;
     };
     $scope.color = $scope.colors[2];
     $scope.changeDia = function(data) {
-      console.log(typeof data.FanSpeed);
-      return $scope.row.OuterBladeDiameter = ($scope.row.FanSpeed / data.FanSpeed) * $scope.row.OuterBladeDiameter;
+      return $scope.row.OuterBladeDiameter = Math.ceil(($scope.row.FanSpeed / data.FanSpeed) * $scope.row.OuterBladeDiameter);
     };
     $scope.selectedPlate = function(data) {
       var dia, factor, selected;
-      console.log($scope.row.OuterBladeDiameter);
+      console.log(chartService.postdata);
       selected = data.color.name.split('-');
       factor = data.color.factor.split('-');
-      dia = Math.pow($scope.row.OuterBladeDiameter, 2);
-      $scope.updated.backPlate = 2 * (parseFloat(selected[0]) * parseFloat(factor[0]) * dia);
-      $scope.updated.shroudPlate = 2 * (parseFloat(selected[1]) * parseFloat(factor[1]) * dia);
-      $scope.updated.blades = 2 * (parseFloat(selected[2]) * parseFloat(factor[2]) * dia);
-      return $scope.updated.hub = 2 * (parseFloat(selected[0]) * data.color.hub * dia);
+      dia = Math.pow($scope.row.OuterBladeDiameter / 1000, 2);
+      $scope.updated.backPlate = +chartService.postdata.MaterialDriveControls.Width * (parseFloat(selected[0]) * parseFloat(factor[0]) * dia);
+      $scope.updated.shroudPlate = +chartService.postdata.MaterialDriveControls.Width * (parseFloat(selected[1]) * parseFloat(factor[1]) * dia);
+      $scope.updated.blades = +chartService.postdata.MaterialDriveControls.Width * (parseFloat(selected[2]) * parseFloat(factor[2]) * dia);
+      return $scope.updated.hub = +chartService.postdata.MaterialDriveControls.Width * (parseFloat(selected[0]) * data.color.hub * dia);
     };
     generateChart = function(result) {
-      var efficiency, nomenclature, nominalsize, series, shaftPower, speed;
-      series = [];
-      speed = [];
-      efficiency = [];
-      shaftPower = [];
-      nomenclature = [];
-      nominalsize = [];
+      var chartData;
+      chartData = {
+        series: [],
+        speed: [],
+        efficiency: [],
+        shaftPower: [],
+        nomenclature: [],
+        nominalsize: []
+      };
       _.map(_.range(10), function(i) {
-        series.push(result[i].Series);
-        speed.push(result[i].FanSpeed);
-        efficiency.push(result[i].Efficiency);
-        shaftPower.push(result[i].FanShaftPower);
-        nominalsize.push(result[i].NominalSize);
-        return nomenclature.push(result[i].Nomenclature);
+        chartData.series.push(result[i].Series);
+        chartData.speed.push(result[i].FanSpeed);
+        chartData.efficiency.push(result[i].Efficiency);
+        chartData.shaftPower.push(result[i].FanShaftPower);
+        chartData.nominalsize.push(result[i].NominalSize);
+        return chartData.nomenclature.push(result[i].Nomenclature);
       });
       return $scope.renderChart = {
         barChart: {
@@ -58,18 +57,18 @@
             text: 'Ri-vent'
           },
           xAxis: {
-            categories: series
+            categories: chartData.series
           },
           series: [
             {
               name: "Speed",
-              data: speed
+              data: chartData.speed
             }, {
               name: "Efficiency",
-              data: efficiency
+              data: chartData.efficiency
             }, {
               name: "Fan Shaft Power",
-              data: shaftPower
+              data: chartData.shaftPower
             }
           ],
           legend: {
@@ -85,18 +84,18 @@
             text: 'Ri-vent'
           },
           xAxis: {
-            categories: speed
+            categories: chartData.speed
           },
           yAxis: {
-            categories: efficiency
+            categories: chartData.efficiency
           },
           series: [
             {
               name: "Nomenclature",
-              data: nomenclature
+              data: chartData.nomenclature
             }, {
               name: "Efficiency",
-              data: efficiency
+              data: chartData.efficiency
             }
           ],
           legend: {
