@@ -1,149 +1,152 @@
 
 div(class="spinner",ng-show="loading")
+
 div(ng-hide='loading')
+	button.btn.btn-primary(ng-click='storedata()') DB
 	div.col-sm-5
 		highchart(chart='{{renderChart.barChart}}')
 	div.col-sm-5.col-sm-offset-1
 		highchart(chart='{{renderChart.lineChart}}')
-table(ng-hide='loading',ng-table='tableParams',class='table table-hover table-striped table-bordered',show-filter='true')
-	tbody(ng-repeat='rivent in $data')
-		tr
-			td
-				a(href='',ng-click='rivent.$hideRows = !rivent.$hideRows;getRow(rivent)')
-					span.glyphicon(ng-class=" { 'glyphicon-chevron-right': !rivent.$hideRows, 'glyphicon-chevron-down': rivent.$hideRows }")
-			td(sortable="'Series'",data-title="'Series'",header-class="text-middle",filter="{'Series':'text'}") {{rivent.Series}}
-			td(sortable="'BladeAngle'",data-title="'BladeAngle'",filter="{'BladeAngle':'text'}") {{rivent.BladeAngle}}
-			td(sortable="'Nomenclature'",data-title="'Nomenclature'",filter="{'Nomenclature':'text'}") {{rivent.Nomenclature}}
-			td(sortable="'NominalSize'",data-title="'NominalSize'",filter="{'NominalSize':'text'}") {{rivent.NominalSize}}
-			td(sortable="'Efficiency'",data-title="'Efficiency'",filter="{'Efficiency':'text'}") {{rivent.Efficiency}}
-			td(sortable="'OuterBladeDiameter'",data-title="'OuterBladeDiameter'",filter="{'OuterBladeDiameter':'text'}") {{rivent.OuterBladeDiameter}}
-			td(sortable="'TipSpeed'",data-title="'TipSpeed'",filter="{'TipSpeed':'text'}") {{rivent.TipSpeed}}
-			td(sortable="'FanSpeed'",data-title="'FanSpeed'",filter="{'FanSpeed':'text'}") {{rivent.FanSpeed}}
-			td(sortable="'FanShaftPower'",data-title="'FanShaftPower'",filter="{'FanShaftPower':'text'}") {{rivent.FanShaftPower}}
-		tr(ng-show='rivent.$hideRows')
-			td(colspan='{{$columns.length}}')
-				tabset
-					tab(heading='Pressure')
-						fieldset.col-sm-6.col-sm-offset-2(class="row")
-							div
-								label Total Pressure Difference(Pa):
-								span {{rivent.TotalPressureDifference}}
-							div
-								label Dynamic Pressure at Inlet(Pa):
-								span {{rivent.DynamicPressureAtInlet}}
-							div
-								label Dynamic Pressure at Outlet(Pa):
-								span {{rivent.DynamicPressureAtOutlet}}
-							div
-								label Dynamic Pressure Evase Outlet(Pa):
-								span {{rivent.DynamicPressureEvaseOutlet}}
-							div
-								label KinematicViscocity(m^2/s):
-								span {{rivent.KinematicViscocity}}
-					tab(heading='Speed')
-						fieldset.col-sm-6.col-sm-offset-2(class="row")
-							div
-								label Tip Speed(m/s):
-								span {{rivent.TipSpeed}}
-							div
-								label Motor Speed(rpm):
-								span {{rivent.MotorSpeed}}
-							div
-								label Speed at Lowest Garantee Point(rpm):
-								span {{rivent.SpeedAtLowestGuaranteePoint}}
-							div
-								label Speed at Highest Guarantee Point(rpm):
-								span {{rivent.SpeedAtHighestGuaranteePoint}}
-						fieldset.col-sm-2
-							label.control-label select Fan Speed :
-							select.form-control(ng-model='data.FanSpeed',ng-change='changeDia(data)')
-								option(selected='true') 490
-								option 590
-								option 705
-								option 740
-								option 880
-								option 980
-								option 1175
-								option 1470
-								option 1760
-								option 2500
-								option 3500
-					tab(heading='Power')
-						fieldset.col-sm-6.col-sm-offset-2(class="row")
-							div
-								label Motor Power(kW):
-								span {{rivent.MotorPower}}
-							div
-								label Recommended Motor Power(kW):
-								span {{rivent.RecommendedMotorPower}}
-							div
-								label Dampening Value:
-								span {{rivent.DampeningValue}}
-					tab(heading='Blade')
-						fieldset.col-sm-6.col-sm-offset-2(class="row")
-							div(ng-dblclick='rivent.$edit =true')
-								label Number Of Blade Cuts:
-								span {{rivent.NumberOfBladeCuts}}
-							div
-								label Number Of Blade Extensions:
-								span {{rivent.NumberOfBladeExtensions}}
-							div
-								label NominalOuter Blade Diameter(mm):
-								span {{rivent.NominalOuterBladeDiameter}}
-					tab(heading='Noises')
-						fieldset.col-sm-6.col-sm-offset-2(class="row")
-							div
-								label Blade Passage Frequency 1(Hz):
-								span {{rivent.BladePassageFrequency1_111}}
-							div
-								label Blade Passage Frequency 2(Hz):
-								span {{rivent.BladePassageFrequency1_111_2}}
-							div
-								label Blade Passage Frequency 3(Hz):
-								span {{rivent.BladePassageFrequency1_111_3}}
-					tab(heading='Impeller Scantllings')
-						//,ng-dblclick='editMode=true'  ,ng-show='editMode'
-						fieldset.col-sm-5.col-sm-offset-1(class="row")
-							div.row
-								label.control-label.col-sm-4 Back Plate:
-								div.col-sm-6
-									span {{rivent.BackPlate | number:2}}
-							div.row
-								label.control-label.col-sm-4 Shroud Plate:
-								div.col-sm-6
-									span {{rivent.ShroudPlate | number:2}}
-							div.row
-								label.control-label.col-sm-4 Blades:
-								div.col-sm-6
-									span {{rivent.Blades | number:2 }}
-							div.row
-								label.control-label.col-sm-4 Hub:
-								div.col-sm-6
-									span {{rivent.Hub | number:2 }}
-							div.row
-								label.control-label.col-sm-4 Total:
-								div.col-sm-6
-									span  {{rivent.Total | number:2}}
-							div.row
-								label.control-label.col-sm-4 Shaft Power With DustLoad(kW):
-								div.col-sm-6
-									span  {{rivent.ShaftPowerWithDustLoad | number:2}}
+	table(ng-hide='loading',ng-table='tableParams',class='table table-hover table-striped table-bordered',show-filter='true')
+		tbody(ng-repeat='rivent in $data')
+			tr
+				td
+					a(href='',ng-click='rivent.$hideRows = !rivent.$hideRows;getRow(rivent)')
+						span.glyphicon(ng-class=" { 'glyphicon-chevron-right': !rivent.$hideRows, 'glyphicon-chevron-down': rivent.$hideRows }")
 
-						fieldset.col-sm-3.col-lg-pull-1(ng-show='editMode')
-								lable.control-label.col-sm-6 New Value:
-								div.col-sm-6
-									span {{updated.backPlate | number:2}}
-								lable.control-label.col-sm-6 New Value:
-								div.col-sm-6
-									span {{updated.shroudPlate | number:2}}
-								lable.control-label.col-sm-6 New Value:
-								div.col-sm-6
-									span  {{updated.blades | number:2}}
-								lable.control-label.col-sm-6 New Value:
-								div.col-sm-6
-									span  {{updated.hub | number:2}}
+				td(sortable="'Series'",data-title="'Series'",header-class="text-middle",filter="{'Series':'text'}") {{rivent.Series}}
+				td(sortable="'BladeAngle'",data-title="'BladeAngle'",filter="{'BladeAngle':'text'}") {{rivent.BladeAngle}}
+				td(sortable="'Nomenclature'",data-title="'Nomenclature'",filter="{'Nomenclature':'text'}") {{rivent.Nomenclature}}
+				td(sortable="'NominalSize'",data-title="'NominalSize'",filter="{'NominalSize':'text'}") {{rivent.NominalSize}}
+				td(sortable="'OperatingPoint'",data-title="'OperatingPoint'",filter="{'OperatingPoint':'text'}") {{rivent.OperatingPoint}}
+				td(sortable="'Efficiency'",data-title="'Efficiency'",filter="{'Efficiency':'text'}") {{rivent.Efficiency}}
+				td(sortable="'OuterBladeDiameter'",data-title="'OuterBladeDiameter'",filter="{'OuterBladeDiameter':'text'}") {{rivent.OuterBladeDiameter}}
+				td(sortable="'TipSpeed'",data-title="'TipSpeed'",filter="{'TipSpeed':'text'}") {{rivent.TipSpeed}}
+				td(sortable="'FanSpeed'",data-title="'FanSpeed'",filter="{'FanSpeed':'text'}") {{rivent.FanSpeed}}
+				td(sortable="'FanShaftPower'",data-title="'FanShaftPower'",filter="{'FanShaftPower':'text'}") {{rivent.FanShaftPower}}
+			tr(ng-show='rivent.$hideRows')
+				td(colspan='{{$columns.length}}')
+					tabset
+						tab(heading='Pressure')
+							fieldset.col-sm-6.col-sm-offset-2(class="row")
+								div
+									label Total Pressure Difference(Pa):
+									span {{rivent.TotalPressureDifference}}
+								div
+									label Dynamic Pressure at Inlet(Pa):
+									span {{rivent.DynamicPressureAtInlet}}
+								div
+									label Dynamic Pressure at Outlet(Pa):
+									span {{rivent.DynamicPressureAtOutlet}}
+								div
+									label Dynamic Pressure Evase Outlet(Pa):
+									span {{rivent.DynamicPressureEvaseOutlet}}
+								div
+									label KinematicViscocity(m^2/s):
+									span {{rivent.KinematicViscocity}}
+						tab(heading='Speed')
+							fieldset.col-sm-6.col-sm-offset-2(class="row")
+								div
+									label Tip Speed(m/s):
+									span {{rivent.TipSpeed}}
+								div
+									label Motor Speed(rpm):
+									span {{rivent.MotorSpeed}}
+								div
+									label Speed at Lowest Garantee Point(rpm):
+									span {{rivent.SpeedAtLowestGuaranteePoint}}
+								div
+									label Speed at Highest Guarantee Point(rpm):
+									span {{rivent.SpeedAtHighestGuaranteePoint}}
+							fieldset.col-sm-2
+								label.control-label select Fan Speed :
+								select.form-control(ng-model='data.FanSpeed',ng-change='changeDia(data)')
+									option(selected='true') 490
+									option 590
+									option 705
+									option 740
+									option 880
+									option 980
+									option 1175
+									option 1470
+									option 1760
+									option 2500
+									option 3500
+						tab(heading='Power')
+							fieldset.col-sm-6.col-sm-offset-2(class="row")
+								div
+									label Motor Power(kW):
+									span {{rivent.MotorPower}}
+								div
+									label Recommended Motor Power(kW):
+									span {{rivent.RecommendedMotorPower}}
+								div
+									label Dampening Value:
+									span {{rivent.DampeningValue}}
+						tab(heading='Blade')
+							fieldset.col-sm-6.col-sm-offset-2(class="row")
+								div(ng-dblclick='rivent.$edit =true')
+									label Number Of Blade Cuts:
+									span {{rivent.NumberOfBladeCuts}}
+								div
+									label Number Of Blade Extensions:
+									span {{rivent.NumberOfBladeExtensions}}
+								div
+									label NominalOuter Blade Diameter(mm):
+									span {{rivent.NominalOuterBladeDiameter}}
+						tab(heading='Noises')
+							fieldset.col-sm-6.col-sm-offset-2(class="row")
+								div
+									label Blade Passage Frequency 1(Hz):
+									span {{rivent.BladePassageFrequency1_111}}
+								div
+									label Blade Passage Frequency 2(Hz):
+									span {{rivent.BladePassageFrequency1_111_2}}
+								div
+									label Blade Passage Frequency 3(Hz):
+									span {{rivent.BladePassageFrequency1_111_3}}
+						tab(heading='Impeller Scantllings')
+							//,ng-dblclick='editMode=true'  ,ng-show='editMode'
+							fieldset.col-sm-5.col-sm-offset-1(class="row")
+								div.row
+									label.control-label.col-sm-4 Back Plate:
+									div.col-sm-6
+										span {{rivent.BackPlate | number:2}}
+								div.row
+									label.control-label.col-sm-4 Shroud Plate:
+									div.col-sm-6
+										span {{rivent.ShroudPlate | number:2}}
+								div.row
+									label.control-label.col-sm-4 Blades:
+									div.col-sm-6
+										span {{rivent.Blades | number:2 }}
+								div.row
+									label.control-label.col-sm-4 Hub:
+									div.col-sm-6
+										span {{rivent.Hub | number:2 }}
+								div.row
+									label.control-label.col-sm-4 Total:
+									div.col-sm-6
+										span  {{rivent.Total | number:2}}
+								div.row
+									label.control-label.col-sm-4 Shaft Power With DustLoad(kW):
+									div.col-sm-6
+										span  {{rivent.ShaftPowerWithDustLoad | number:2}}
 
-						fieldset.col-sm-2
-								label.control-label Select  Values:
-								select.form-control(ng-options="c.name for c in colors |filter:rivent.Series",ng-model="data.color",ng-change="selectedPlate(data);editMode=true")
+							fieldset.col-sm-3.col-lg-pull-1(ng-show='editMode')
+									lable.control-label.col-sm-6 New Value:
+									div.col-sm-6
+										span {{rivent.backPlate1 | number:2}}
+									lable.control-label.col-sm-6 New Value:
+									div.col-sm-6
+										span {{rivent.shroudPlate1 | number:2}}
+									lable.control-label.col-sm-6 New Value:
+									div.col-sm-6
+										span  {{rivent.blades1 | number:2}}
+									lable.control-label.col-sm-6 New Value:
+									div.col-sm-6
+										span  {{rivent.hub1 | number:2}}
+							fieldset.col-sm-2
+									label.control-label Select New Values:
+									select.form-control(ng-options="c.name for c in colors |filter:rivent.Series",ng-model="data.color",ng-change="selectedPlate(data);editMode=true")
 

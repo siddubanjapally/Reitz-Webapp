@@ -32,9 +32,13 @@
 
   app.get('/customer/:name', routes.customer);
 
+  app.get('/api/fanproject', apis.getfanprojects);
+
   app.post('/api/logindata', apis.logindata);
 
   app.post('/api/postdata', apis.postdata);
+
+  app.post('/api/fanproject', apis.storedata);
 
   app.get('*', routes.index);
 

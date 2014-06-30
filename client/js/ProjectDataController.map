@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ProjectDataController.js",
+  "sourceRoot": "",
+  "sources": [
+    "ProjectDataController.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,CACoC,GADnC,CAAO,EAC6B,CADrC,IACoC,SADpC;CAEI,EAAc,CAAd,EAAM,QAAsB;CAA5B,EAEqB,CAArB,EAAM,GAAe,EAArB;CACY,GAAV,KAAS,IAAT;CAHF,IAEqB;CAEd,EAAiB,GAAlB,GAAkB,EAAxB,GAAA;CACY,GAAV,KAAS,IAAT,IAAA;CAN8B,IAKR;CAN5B,EACoC;CADpC"
+}

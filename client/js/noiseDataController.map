@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "noiseDataController.js",
+  "sourceRoot": "",
+  "sources": [
+    "noiseDataController.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,CAAA,CACkC,GADjC,CAAO,EAC2B,CADnC,EACkC,EAAA,OADlC;CAEI,EAAc,CAAd,EAAM,QAAsB;CAA5B,EAEyB,CAAzB,EAAM,GAAmB,MAAzB;CACY,GAAV,KAAS,IAAT,KAAA;CAHF,IAEyB;CAGlB,EAAgB,CAAA,EAAjB,GAAkB,EAAxB,EAAA;CACE,GAAW,EAAX,WAAA,CAA8B;CAA9B,EACwB,CADxB,EACA,EAAA,IAAY;CADZ,EAEc,CAAd,EAAA;CACU,GAAV,KAAS,GAAT,CAAA;CAV4B,IAMP;CAP3B,EACkC;CADlC"
+}

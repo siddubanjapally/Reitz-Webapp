@@ -1,0 +1,163 @@
+//
+   Created by amd on 13/3/14.
+
+.col-sm-10.col-sm-offset-1 
+    .panel.panel-primary
+        .panel-heading
+            h3.panel-title.text-center Operating Point Details
+        .panel-body
+            .col-sm-6
+                .form-group(ng-class="{ 'has-error' : newProject.operatingTemp.$invalid && newProject.operatingTemp.$dirty}")
+                    label(
+                    class='control-label',
+                    for='operatingTemp')
+                        | Operating Temperature (T)
+                    input#operatingTemp(
+                    class='form-control',
+                    type='text',
+                    name='operatingTemp',
+                    ng-model='data.GasOperatingPoints.T',
+                    placeholder='Enter Operating Temperature '
+                    )
+                    small.help-block(
+                    ng-show='newProject.operatingTemp.$invalid && newProject.operatingTemp.$dirty') operatingTemp is required
+                .form-group(ng-class="{ 'has-error' : newProject.normalFlowRate.$invalid && newProject.normalFlowRate.$dirty}")
+                    label(
+                    class='control-label',
+                    for='normalFlowRate')
+                        | Normal Flow Rate (Vp)
+                    input#normalFlowRate(
+                    class='form-control',
+                    type='text',
+                    name='normalFlowRate',
+                    ng-model='data.GasOperatingPoints.Vp',
+                    placeholder='Enter Normal Flow Rate'
+                    )
+                    div
+                        button.btn.btn-primary.btn-circle(type="button",ng-model="data.flowrate.Vp",ng-change='calculateVp()',btn-radio="'M3/S'") M3/S
+                        button.btn.btn-primary.btn-circle(type="button",ng-model="data.flowrate.Vp",ng-change='calculateVp()',btn-radio="'M3/M'") M3/M
+                        button.btn.btn-primary.btn-circle(type="button",ng-model="data.flowrate.Vp",ng-change='calculateVp()',btn-radio="'M3/H'") M3/H
+                        button.btn.btn-primary.btn-circle(type="button",ng-model="data.flowrate.Vp",ng-change='calculateVp()',btn-radio="'NM3/S'") NM3/S
+                        button.btn.btn-primary.btn-circle(type="button",ng-model="data.flowrate.Vp",ng-change='calculateVp()',btn-radio="'NM3/M'") NM3/M
+                        button.btn.btn-primary.btn-circle(type="button",ng-model="data.flowrate.Vp",ng-change='calculateVp()',btn-radio="'NM3/H'") NM3/H
+                    small.help-block(
+                    ng-show='newProject.normalFlowRate.$invalid && newProject.normalFlowRate.$dirty')
+                        | Normal Flow Rate is required
+
+                .form-group(ng-class="{ 'has-error' : newProject.totalPresDiffer.$invalid && newProject.totalPresDiffer.$dirty}")
+                    label(
+                    class='control-label',
+                    for='totalPresDiffer')
+                        | Total Pressure Difference (Dpt)
+                    input#totalPresDiffer(
+                    class='form-control',
+                    type='text',
+                    name='totalPresDiffer',
+                    ng-model='data.GasOperatingPoints.Dpt',
+                    placeholder='Enter Total Pressure Difference'
+                    )
+                    small.help-block(
+                    ng-show='newProject.totalPresDiffer.$invalid && newProject.totalPresDiffer.$dirty')
+                        |Total Pressure difference is required
+                    div
+                        button.btn.btn-primary.btn-circle(type='button', ng-model='data.flowrate.pres',ng-click='CalcNormalDensity()', btn-radio='"PA"') PA
+                        button.btn.btn-primary.btn-circle(type='button', ng-model='data.flowrate.pres',ng-click='CalcNormalDensity()', btn-radio='"MMwg"') MMwg
+                        button.btn.btn-primary.btn-circle(type='button', ng-model='data.flowrate.pres',ng-click='CalcNormalDensity()', btn-radio='"Mbar"') Mbar
+                        button.btn.btn-primary.btn-circle(type='button', ng-model='data.flowrate.pres',ng-click='CalcNormalDensity()', btn-radio='"Dapa"') Dapa
+
+                .form-group(ng-class="{ 'has-error' : newProject.statePresDiffer.$invalid && newProject.statePresDiffer.$dirty}")
+                    label(
+                    class='control-label',
+                    for='statePresDiffer')
+                        | State Pressure Difference (P1)
+                    input#statePresDiffer(
+                    class='form-control',
+                    type='text',
+                    name='statePresDiffer',
+                    ng-model='data.GasOperatingPoints.P1',
+                    placeholder='Enter State Pressure Difference'
+                    )
+                    small.help-block(
+                    ng-show='newProject.statePresDiffer.$invalid && newProject.statePresDiffer.$dirty')
+                        | State Pressure difference is required
+                .form-group
+                    button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+            .col-sm-6
+                .form-group(ng-class="{ 'has-error' : newProject.relHumidity.$invalid && newProject.relHumidity.$dirty}")
+                    label(
+                    class='control-label',
+                    for='relHumidity')
+                        | Rel or Abs Humidity (F)
+                    input#rel-abs-Humidity(
+                    class='form-control',
+                    type='text',
+                    name='relHumidity',
+                    ng-model='data.GasOperatingPoints.F',
+                    placeholder='Enter Rel or Abs Humidity'
+                    )
+                    small.help-block(
+                    ng-show='newProject.relHumidity.$invalid && newProject.relHumidity.$dirty')
+                        | Rel or Abs Humidity is required
+
+                .form-group(ng-class="{ 'has-error' : newProject.normalDensity.$invalid && newProject.normalDensity.$dirty}")
+                    label(
+                    class='control-label',
+                    for='normalDensity')
+                        | Normal Density (Ro)
+                    input#normalDensity(
+                    class='form-control',
+                    type='text',
+                    name='normalDensity',
+                    ng-readonly='chb.Ro',
+                    ng-model='data.GasOperatingPoints.Ro',
+                    placeholder='Enter Normal Density '
+                    )
+                    small.help-block(
+                    ng-show='newProject.normalDensity.$invalid && newProject.normalDensity.$dirty')
+                        | Normal Density is required
+                br
+                br
+                br
+                .form-group(ng-class="{ 'has-error' : newProject.altitude.$invalid && newProject.altitude.$dirty}")
+                    label(
+                    class='control-label',
+                    for='altitude')
+                        | Altitude (At)
+                    .checkbox-inline
+                        input(type='checkbox',ng-model='data.chb')
+                    input#altitude(
+                    class='form-control',
+                    type='text',
+                    name='altitude',
+                    ng-readonly='chb.At',
+                    ng-model='data.GasOperatingPoints.Alt',
+                    ng-change='calculateDensity()',
+                    placeholder='Enter Altitude '
+                    )
+                    small.help-block(
+                    ng-show='newProject.altitude.$invalid && newProject.altitude.$dirty')
+                        | Altitude is required
+
+                .form-group(ng-class="{ 'has-error' : newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty}")
+                    label(
+                    class='control-label',
+                    for='dynamicViscosity')
+                        | Dynamic Viscosity (Vi)
+                    input#dynamicViscosity(
+                    class='form-control ',
+                    type='text',
+                    name='dynamicViscosity',
+                    ng-readonly='true',
+                    ng-model='data.GasOperatingPoints.Vi',
+                    placeholder='Enter Dynamic Viscosity '
+                    )
+                    small.help-block(
+                    ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+                        | Dynamic Viscosity  is required
+                .form-group
+                    button.btn.btn-warning(type='submit',ng-click='addOperatingPoint()') Add Operating point
+                .form-group
+                    //button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
+                    button.btn.btn-primary.pull-right(href='#formCarousel',type='submit',data-slide='next') Next
+
+

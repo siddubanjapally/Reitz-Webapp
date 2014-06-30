@@ -1,29 +1,35 @@
 
-<div class="container">
-	<div class="row">
-		<div id="navLogo"><a href="#" class="navbar-brand"><img src="images/logo.png"/></a></div>
-	</div>
-	<div class="row">
-		<nav role="navigation" class="navbar navbar-default">
-			<!--<div class="navbar-header">
-				<button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-			</div>-->
-			<div id="bs-example-navbar-collapse-1" class="navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="/customerhome">Home</a></li>
-					<!--<li class="dropdown"><a href="" data-toggle="dropdown" class="dropdown-toggle">Projects<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#/admin/new">New Project</a></li>
-							<li><a href="#/admin/products">Clone Project</a></li>
-						</ul>
-					</li>-->
-					<!--<li><a href="#/shop/products">Contact US</a></li>-->
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="pull-right"><a href="/customerlogin">Log In<b ></b></a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</div>
+<div class='navbar navbar-default ' role='navigation' ng-contoller="CustomerLoginController">
+    <div class='container'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse'  data-target=".navbar-ex1-collapse">
+                <span class='sr-only'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' href='#'><img src="images/logo.gif"/></a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li  ng-show="login"><a href="/home">Home</a></li>
+                <li class="dropdown" ng-show="admin">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setting <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/createuser">Create User</a></li>
+                        <li><a href="/createResistantCoefficient">Add Resistant Coefficient</a></li>
+
+
+                        <!--<li><a href="#">Another action</a></li>-->
+                    </ul>
+                </li>
+                <li class="dropdown" ng-show="login">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">admin <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/login">Log Out</a></li>
+                    </ul>
+                </li>
+                </ul>
+        </div>
+    </div>
 </div>

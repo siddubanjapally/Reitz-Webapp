@@ -1,0 +1,122 @@
+//
+   Created by amd on 13/3/14.
+
+.col-sm-8.col-sm-offset-2
+    .panel.panel-primary
+        .panel-heading
+            h3.panel-title.text-center Material Control
+        .panel-body
+            .col-sm-8.col-sm-offset-2
+                .form-group( ng-class="{'has-error':newProject.dat.$invalid&& newProject.date.$dirty}")
+                    label(
+                    class='control-label',
+                    for='create-date') Inlet/Outlet Duct
+                    select.form-control(ng-model='data.MaterialDriveControls.InletOutletDuct')
+                        option(value='') Select duct..
+                        option(value='0') Free inlet,ducted outlet
+                        option(value='1') Free outlet,ducted inlet
+                        option(value='2') Ducted inlet and outlet
+                .form-group(ng-class="{ 'has-error' : newProject.engineers.$invalid && newProject.engineers.$dirty }",class='has-feedback')
+                    label(
+                    class='control-label',
+                    for='engineer') Single/Double Width
+                    br
+                    button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.Width",btn-radio="'0'") Single
+                    button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.Width",btn-radio="'1'") Double
+
+                .form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+                    label(
+                    class='control-label',
+                    for='project-name') Control
+                    select.form-control(ng-model='data.MaterialDriveControls.Control',placeholder='Select value')
+                        option(value='') Select Control..
+                        option(value='0') None
+                        option(value='1') Speed Control
+                        option(value='2') Inlet Vane Control
+                        option(value='3') Dumper Control
+
+                .form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+                    label(
+                    class='control-label',
+                    for='order-no') IVC Position at design load 90c
+                    .checkbox-inline
+                        input(type='checkbox',ng-model='data.MaterialDriveControls.IVCPosition')
+                .form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+                    label(
+                    class='control-label',
+                    for='order-no') Mechanical Design Temperature[Degrees C]
+                    input#dynamicViscosity(
+                    class='form-control ',
+                    type='text',
+                    name='dynamicViscosity',
+                    ng-model='data.MaterialDriveControls.MechanicalDesignTemperature',
+                    placeholder='Enter Dynamic Viscosity ',
+                    required)
+                    small.help-block(
+                    ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+                        |  Mechanical Design Temperature[Degrees C] is required
+                .form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
+                    label(
+                    class='control-label',
+                    for='project-name') Drive
+                    br
+                    button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.drive",btn-radio="'0'") Direct
+                    button.btn.btn-primary.btn-circle(type="button",ng-model="data.MaterialDriveControls.drive",btn-radio="'1'") V-Belt
+                .form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+                    label(
+                    class='control-label',
+                    for='order-no') Standard Impeller Material
+                    .checkbox-inline
+                        input(type='checkbox',ng-model='data.MaterialDriveControls.StandardImpellerMaterial')
+                .form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+                    label(
+                    class='control-label',
+                    for='order-no') Material Name
+                    input#dynamicViscosity(
+                    class='form-control ',
+                    type='text',
+                    name='dynamicViscosity',
+                    ng-model='data.MaterialDriveControls.MaterialName',
+                    placeholder='Enter Material Name ',
+                    required)
+                    small.help-block(
+                    ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+                        |  Material Name is required
+                .form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+                    label(
+                    class='control-label',
+                    for='order-no') Material Density[kg/dm*3]
+                    input#dynamicViscosity(
+                    class='form-control ',
+                    type='text',
+                    name='dynamicViscosity',
+                    ng-model='data.MaterialDriveControls.MaterialDensity',
+                    placeholder='Enter Material Density ',
+                    required)
+                    small.help-block(
+                    ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+                        |  Material Density is required
+                .form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+                    label(
+                    class='control-label',
+                    for='order-no') Material Yield Strength[N/mm*2]
+                    input#dynamicViscosity(
+                    class='form-control ',
+                    type='text',
+                    name='dynamicViscosity',
+                    ng-model='data.MaterialDriveControls.MaterialYieldStrength',
+                    placeholder='Enter Material Yield Strength',
+                    required)
+                    small.help-block(
+                    ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
+                        |  Material Yield Strength[N/mm*2] is required
+                .form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+                    label(
+                    class='control-label',
+                    for='order-no') Noises Data Required
+                    .checkbox-inline
+                        input(type='checkbox')
+                .form-group
+                    button.btn.btn-primary.pull-left(type='submit',ng-click='fanAssembling()') Previous
+                .form-group
+                    button.btn.btn-primary.pull-right(type='submit',ng-click='noiseData()') Next

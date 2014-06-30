@@ -1,6 +1,9 @@
 (angular.module 'reitz')
-.controller 'CustomerHomeController',($scope,$window,$location)->
+.controller 'CustomerHomeController',($scope,$rootScope,$location)->
     $scope.gotoNewProject = ->
-      $window.$location.url '/newproject'
+      $rootScope.flag= 0
+      $location.path '/newproject'
     $scope.gotEditProject = ->
-      $location.url '/'
+      console.log 'edit'
+      $rootScope.flag = 1
+      $location.path '/projectslist'

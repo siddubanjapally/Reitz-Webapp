@@ -4,20 +4,7 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="angularjs" level="application" />
     <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="coffeescript" level="application" />
-    <orderEntry type="library" name="express-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="express-validator-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="Iniparser" level="application" />
-    <orderEntry type="library" name="jasmine-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="lodash" level="application" />
-    <orderEntry type="library" name="Node.js v0.10.21 Core Modules" level="application" />
-    <orderEntry type="library" name="pouchdb" level="application" />
-    <orderEntry type="library" name="q" level="application" />
-    <orderEntry type="library" name="q-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="socket.io-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="underscore" level="application" />
     <orderEntry type="library" name="Node.js Dependencies for ReitzIndia_Node" level="project" />
   </component>
 </module>

@@ -1,0 +1,74 @@
+
+.col-sm-8.col-sm-offset-2
+    .panel.panel-primary
+        .panel-heading
+            h3.panel-title.text-center Project Data
+        .panel-body
+            .col-sm-8.col-sm-offset-2
+                form(
+                role='form',
+                name='newProject',
+                novalidate)
+                    .form-group
+                        label(
+                        class='control-label',
+                        for='create-date') Date
+                        input#create-date(ui-date,
+                        class='form-control',
+                        type='date',
+                        name='dat',
+                        ng-model='data.Date',
+                        autofocus,
+                        ng-enter,
+                        placeholder='Enter Date'
+                        )
+                        small(
+                        class='help-block',
+                        ng-show='newProject.dat.$invalid && newProject.date.$dirty') Date is required
+                    .form-group
+                        label(
+                        class='control-label',
+                        for='engineer') Engineer Name
+                        input#engineer(
+                        class='form-control',
+                        ng-enter,
+                        type='text',
+                        name='engineers',
+                        ng-model='data.Engineer',
+
+                        placeholder='Enter Engineer name',
+                        pattern='[a-z]')
+                        small.help-block(
+                        ng-show='newProject.engineers.$invalid && newProject.engineers.$dirty') Engineer Name is required
+                    .form-group
+                        label(
+                        class='control-label',
+                        for='project-name') Project Name
+                        input#project-name(
+                        class='form-control',
+                        ng-enter,
+                        type='text',
+                        name='projectName',
+                        ng-model='data.ProjectName',
+                        placeholder='Enter Project Name '
+                        )
+                        small.help-block(
+                        ng-show='newProject.projectName.$invalid && newProject.projectName.$dirty') Project Name is required
+                    .form-group
+                        label(
+                        class='control-label',
+                        for='order-no') Proposal / Order No.
+                        input#order-no(
+                        class='form-control',
+                        type='text',
+                        ng-enter,
+                        name='orderNo',
+                        ng-model='data.Proposal_OrderNo',
+                        placeholder='Enter Proposal text'
+                        )
+                        small.help-block(
+                        ng-show='newProject.orderNo.$invalid && newProject.orderNo.$dirty') Proposal No. is required
+                    .form-group
+                        button.btn.btn-primary.pull-right(href='#formCarousel',ng-click='operatingPoint()') Next
+
+

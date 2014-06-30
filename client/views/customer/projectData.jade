@@ -73,10 +73,14 @@
 										small.help-block(
 										ng-show='newProject.orderNo.$invalid && newProject.orderNo.$dirty') Proposal No. is required
 									.form-group
-										button.btn.btn-primary.pull-right(href='#formCarousel',data-slide='next') Next
+										button.btn.btn-primary.pull-right(href='#formCarousel',ng-click='operatingPoint()') Next
 
 		.item
 			.container
+				div#cloned.col-sm-10.col-sm-offset-1
+					div(ng-repeat='op in data.GasOperatingPoints',ng-click='showGoPoints(op,$index)')
+						.op
+							span.opSpan Operating Point {{$index+1}}
 				.col-sm-10.col-sm-offset-1
 					.panel.panel-primary
 						.panel-heading
@@ -92,7 +96,7 @@
 									class='form-control',
 									type='text',
 									name='operatingTemp',
-									ng-model='data.GasOperatingPoints.T',
+									ng-model='data.GasOperatingPoint.T',
 									placeholder='Enter Operating Temperature '
 									)
 									small.help-block(
@@ -106,7 +110,7 @@
 									class='form-control',
 									type='text',
 									name='normalFlowRate',
-									ng-model='data.GasOperatingPoints.Vp',
+									ng-model='data.GasOperatingPoint.Vp',
 									placeholder='Enter Normal Flow Rate'
 									)
 									div
@@ -129,7 +133,7 @@
 									class='form-control',
 									type='text',
 									name='totalPresDiffer',
-									ng-model='data.GasOperatingPoints.Dpt',
+									ng-model='data.GasOperatingPoint.Dpt',
 									placeholder='Enter Total Pressure Difference'
 									)
 									small.help-block(
@@ -150,7 +154,7 @@
 									class='form-control',
 									type='text',
 									name='statePresDiffer',
-									ng-model='data.GasOperatingPoints.P1',
+									ng-model='data.GasOperatingPoint.P1',
 									placeholder='Enter State Pressure Difference'
 									)
 									small.help-block(
@@ -168,7 +172,7 @@
 									class='form-control',
 									type='text',
 									name='relHumidity',
-									ng-model='data.GasOperatingPoints.F',
+									ng-model='data.GasOperatingPoint.F',
 									placeholder='Enter Rel or Abs Humidity'
 									)
 									small.help-block(
@@ -185,7 +189,7 @@
 									type='text',
 									name='normalDensity',
 									ng-readonly='chb.Ro',
-									ng-model='data.GasOperatingPoints.Ro',
+									ng-model='data.GasOperatingPoint.Ro',
 									placeholder='Enter Normal Density '
 									)
 									small.help-block(
@@ -200,13 +204,13 @@
 									for='altitude')
 										| Altitude (At)
 									.checkbox-inline
-										input(type='checkbox',ng-model='data.GasOperatingPoints.Atcheck')
+										input(type='checkbox',ng-model='data.GasOperatingPoint.Atcheck')
 									input#altitude(
 									class='form-control',
 									type='text',
 									name='altitude',
 									ng-readonly='chb.At',
-									ng-model='data.GasOperatingPoints.Alt',
+									ng-model='data.GasOperatingPoint.Alt',
 									ng-change='calculateDensity()',
 									placeholder='Enter Altitude '
 									)
@@ -224,17 +228,20 @@
 									type='text',
 									name='dynamicViscosity',
 									ng-readonly='true',
-									ng-model='data.GasOperatingPoints.Vi',
+									ng-model='data.GasOperatingPoint.Vi',
 									placeholder='Enter Dynamic Viscosity '
 									)
 									small.help-block(
 									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscosity.$dirty')
 										| Dynamic Viscosity  is required
 								.form-group
-									button.btn.btn-warning(type='submit',ng-click='addOperatingPoint()') Add Operating point
+									button.btn.btn-primary(ng-show='opbtn',type='submit',ng-click='addOperatingPoint()') Add Operating point
+									| &nbsp;&nbsp;
+									button.btn.btn-success(ng-show='!opbtn',type='submit',ng-click='updateGoPoint()') Update
+
 								.form-group
 									//button.btn.btn-primary.pull-left(href='#formCarousel',type='submit',data-slide='prev') Previous
-									button.btn.btn-primary.pull-right(href='#formCarousel',type='submit',data-slide='next') Next
+									button.btn.btn-primary.pull-right(href='#formCarousel',type='submit',data-slide='next',ng-click='operatingPoint()') Next
 		.item
 			img(data-src='')
 			.container
@@ -416,20 +423,20 @@
 									for='order-no') IVC Position at design load 90c
 									.checkbox-inline
 										input(type='checkbox',ng-model='data.MaterialDriveControls.IVCPosition')
-								.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
-									label(
-									class='control-label',
-									for='order-no') Mechanical Design Temperature[Degrees C]
-									input#dynamicViscosity(
-									class='form-control ',
-									type='text',
-									name='dynamicViscosity',
-									ng-model='data.MaterialDriveControls.MechanicalDesignTemperature',
-									placeholder='Enter Dynamic Viscosity ',
-									required)
-									small.help-block(
-									ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscossity.$dirty')
-										|  Mechanical Design Temperature[Degrees C] is required
+								//.form-group(ng-class="{ 'has-error' : newProject.orderNo.$invalid && newProject.orderNo.$dirty}")
+								//	label(
+								//	class='control-label',
+								//	for='order-no') Mechanical Design Temperature[Degrees C]
+								//	input#dynamicViscosity(
+								//	class='form-control ',
+								//	type='text',
+								//	name='dynamicViscosity',
+								//	ng-model='data.MaterialDriveControls.MechanicalDesignTemperature',
+								//	placeholder='Enter Dynamic Viscosity ',
+								//	required)
+								//	small.help-block(
+								//	ng-show='newProject.dynamicViscosity.$invalid && newProject.dynamicViscossity.$dirty')
+								//		|  Mechanical Design Temperature[Degrees C] is required
 								.form-group( ng-class="{ 'has-error' : newProject.projectName.$invalid && newProject.projectName.$dirty}")
 									label(
 									class='control-label',

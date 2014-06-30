@@ -1,0 +1,80 @@
+.container
+	.col-sm-8.col-sm-offset-2
+		.panel.panel-primary
+			.panel-heading
+				h3.panel-title.text-center Resistant Coefficients
+			.panel-body
+				.col-sm-10.col-sm-offset-1
+					form(Role='form')
+						.form-group( ng-class="{'has-error':newProject.dat.$invalid&& newProject.date.$dirty}")
+							label(
+							class='control-label',
+							for='create-date') Select Resistant Coefficient
+							select.form-control(ng-model='getFanAssembliesName', ng-options="opt as opt.label for opt in FanAssemblies")
+
+						.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+							label(
+							class='control-label',
+							for='selectPressure')
+							| {{getFanAssembliesName.label}}
+							input(
+							class='form-control ',
+							type='text',
+							ng-model='data',
+							placeholder='Enter Value ')
+						.form-group
+							button.btn.btn-primary.pull-right(type='button',ng-click='addCofficients(data, getFanAssembliesName)') Submit
+
+
+						//.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+						//	label(
+						//	class='control-label',
+						//	for='selectPressure')
+						//		| Inlet Sound Silencer
+						//	input(
+						//	class='form-control ',
+						//	type='text',
+						//	ng-model='data.FanAssemblies.InletSoundSilencer',
+						//	placeholder='Enter/Select Inlet Sound Silencer ')
+						//
+						//.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+						//	label(
+						//	class='control-label',
+						//	for='selectPressure')
+						//		| Inlet Box
+						//	input(
+						//	class='form-control ',
+						//	type='text',
+						//	ng-model='data.FanAssemblies.InletBox',
+						//	placeholder='Enter/Select Inlet Box ')
+						//.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+						//	label(
+						//	class='control-label',
+						//	for='selectPressure')
+						//		| Other Inlet parts
+						//	input(
+						//	class='form-control ',
+						//	type='text',
+						//	ng-model='data.FanAssemblies.InletOtherParts',
+						//	placeholder='Enter/Select Other Inlet parts ')
+						//.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+						//	label(
+						//	class='control-label',
+						//	for='selectPressure')
+						//		| Outlet Silencer
+						//	input(
+						//	class='form-control ',
+						//	type='text',
+						//	ng-model='data.FanAssemblies.OutletSilencer',
+						//	placeholder='Enter/Select Outlet Silencer ')
+						//.form-group(ng-class="{ 'has-error' : newProject.selectPressure.$invalid && newProject.selectPressure.$dirty}")
+						//	label(
+						//	class='control-label',
+						//	for='selectPressure')
+						//		| Other Outlet Parts
+						//	input(
+						//	class='form-control ',
+						//	type='text',
+						//	ng-model='data.FanAssemblies.OutletOtherParts',
+						//	placeholder='Enter/Select Other Outlet Parts ')
+

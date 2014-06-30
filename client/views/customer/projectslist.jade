@@ -18,33 +18,8 @@
 						th.text-center Engineer
 						th.text-center Date
 				tbody#documents.text-center
-					tr
-						td 1
-						td Reitz
-						td Ravi Vantaku
-						td 01/12/2014
-					tr
-						td 2
-						td RewitzIndia
-						td Siddu B
-						td 01/22/2014
-					tr
-						td 3
-						td Ri-vent
-						td Chinna
-						td 02/02/2014
-					tr
-						td 4
-						td FanProject
-						td Jaya krishana
-						td 02/10/2014
-					tr
-						td 5
-						td FanAnalystic
-						td Naitik
-						td 02/11/2014
-					tr
-						td 6
-						td Reitz2
-						td Amit
-						td 02/18/2014
+					tr(ng-repeat='reitz in projectslist',ng-click='sendData(reitz)')
+						td {{$index+1}}
+						td {{reitz.ProjectName}}
+						td {{reitz.Engineer}}
+						td {{reitz.Date}}

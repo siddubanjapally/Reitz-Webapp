@@ -18,8 +18,11 @@ app.configure ->
 app.get('/', routes.index)
 app.get('/customer/:name', routes.customer)
 
+app.get '/api/fanproject',apis.getfanprojects
 app.post '/api/logindata',apis.logindata
 app.post('/api/postdata',apis.postdata)
+#app.post '/api/storedata',apis.storedata1
+app.post '/api/fanproject',apis.storedata
 app.get('*', routes.index)
 
 http.createServer(app).listen app.get('port'),() ->

@@ -1,28 +1,24 @@
 (angular.module 'reitz')
 .controller('chartCtrl',($scope,ngTableParams,$filter,$http,projectservice,chartService)->
+    $scope.postdata = chartService.postdata
+    console.log chartService.postdata
     $scope.result = []
     $scope.loading = true
     $scope.colors = chartService.colors
-    $scope.updated = {
-      backPlate:0
-      shroudPlate:0
-      blades:0
-      hub:0
-    }
     $scope.getRow = (data) ->
+      console.log data
       $scope.row= data
     $scope.color = $scope.colors[2]
     $scope.changeDia =(data)->
       $scope.row.OuterBladeDiameter =Math.ceil ($scope.row.FanSpeed/data.FanSpeed)*$scope.row.OuterBladeDiameter
     $scope.selectedPlate = (data)->
-      console.log chartService.postdata
       selected = data.color.name.split('-')
       factor = data.color.factor.split('-')
       dia = Math.pow ($scope.row.OuterBladeDiameter/1000),2
-      $scope.updated.backPlate = +chartService.postdata.MaterialDriveControls.Width*(parseFloat(selected[0]) * parseFloat(factor[0]) * dia)
-      $scope.updated.shroudPlate = +chartService.postdata.MaterialDriveControls.Width*(parseFloat(selected[1]) * parseFloat(factor[1])  * dia)
-      $scope.updated.blades = +chartService.postdata.MaterialDriveControls.Width*(parseFloat(selected[2]) * parseFloat(factor[2])  * dia)
-      $scope.updated.hub = +chartService.postdata.MaterialDriveControls.Width*(parseFloat(selected[0]) * data.color.hub * dia)
+      $scope.row.backPlate1 = +$scope.postdata.MaterialDriveControls.Width*(parseFloat(selected[0]) * parseFloat(factor[0]) * dia)
+      $scope.row.shroudPlate1= +$scope.postdata.MaterialDriveControls.Width*(parseFloat(selected[1]) * parseFloat(factor[1])  * dia)
+      $scope.row.blades1 = +$scope.postdata.MaterialDriveControls.Width*(parseFloat(selected[2]) * parseFloat(factor[2])  * dia)
+      $scope.row.hub1 = +$scope.postdata.MaterialDriveControls.Width*(parseFloat(selected[0]) * data.color.hub * dia)
 
     generateChart = (result)->
       chartData =
@@ -86,28 +82,48 @@
         ),
         $scope: $scope
       })
-    #console.log JSON.stringify(projectservice.createJson(chartService.postdata))
+    #console.log JSON.stringify(projectservice.createJson($scope.postdata))
     #$http.post('/api/postdata', chartService.postdata).success (result) ->
-    $http.post('/api/postdata', JSON.stringify(projectservice.createJson(chartService.postdata))).success (result) ->
+    $http.post('/api/postdata', JSON.stringify(projectservice.createJson($scope.postdata))).success (result) ->
       if result.length
         result = _.sortBy(result,'Efficiency').reverse()
+        result = _.map result,(item)->
+          _.assign item,{backPlate1 : 0,shroudPlate1 : 0,blades1 : 0,hub1 : 0 }
         $scope.result = result
+        projectservice.postdata= null
         tableData()
         generateChart(result)
         $scope.loading = false
       else
-      $scope.loading = false
-)
+        $scope.loading = false
+  )
 .directive('highchart',()->
-  return {
-  restrict :'E',
-  template:'<div></div>',
-  render:true,
-  link:(scope,element,attr)->
-    scope.$watch (-> attr.chart), ->
-      return  unless attr.chart
-      charts = JSON.parse(attr.chart)
-      $(element[0]).highcharts charts
-  }
-)
+    return {
+    restrict :'E',
+    template:'<div></div>',
+    render:true,
+    link:(scope,element,attr)->
+      scope.$watch (-> attr.chart), ->
+        return  unless attr.chart
+        charts = JSON.parse(attr.chart)
+        $(element[0]).highcharts charts
+    }
+  )
+###
+.directive('report',()->
+    return {
+      restrict :'E',
+      template:'<div></div>',
+      render:true,
+      link:(scope,element,attr)->
+          $(element[0]).telerik_ReportViewer({
+          serviceUrl: "http://192.168.0.160/ReportService/api/reports/"
+          templateUrl: "ReportViewer/templates/telerikReportViewerTemplate.html"
+          reportSource:
+            report: "Farmats.trdx"
+          }
+        )
+    }
+  )
+###
 

@@ -2,16 +2,13 @@
 (function() {
   (angular.module('reitz')).controller('chartCtrl', function($scope, ngTableParams, $filter, $http, projectservice, chartService) {
     var generateChart, tableData;
+    $scope.postdata = chartService.postdata;
+    console.log(chartService.postdata);
     $scope.result = [];
     $scope.loading = true;
     $scope.colors = chartService.colors;
-    $scope.updated = {
-      backPlate: 0,
-      shroudPlate: 0,
-      blades: 0,
-      hub: 0
-    };
     $scope.getRow = function(data) {
+      console.log(data);
       return $scope.row = data;
     };
     $scope.color = $scope.colors[2];
@@ -20,14 +17,13 @@
     };
     $scope.selectedPlate = function(data) {
       var dia, factor, selected;
-      console.log(chartService.postdata);
       selected = data.color.name.split('-');
       factor = data.color.factor.split('-');
       dia = Math.pow($scope.row.OuterBladeDiameter / 1000, 2);
-      $scope.updated.backPlate = +chartService.postdata.MaterialDriveControls.Width * (parseFloat(selected[0]) * parseFloat(factor[0]) * dia);
-      $scope.updated.shroudPlate = +chartService.postdata.MaterialDriveControls.Width * (parseFloat(selected[1]) * parseFloat(factor[1]) * dia);
-      $scope.updated.blades = +chartService.postdata.MaterialDriveControls.Width * (parseFloat(selected[2]) * parseFloat(factor[2]) * dia);
-      return $scope.updated.hub = +chartService.postdata.MaterialDriveControls.Width * (parseFloat(selected[0]) * data.color.hub * dia);
+      $scope.row.backPlate1 = +$scope.postdata.MaterialDriveControls.Width * (parseFloat(selected[0]) * parseFloat(factor[0]) * dia);
+      $scope.row.shroudPlate1 = +$scope.postdata.MaterialDriveControls.Width * (parseFloat(selected[1]) * parseFloat(factor[1]) * dia);
+      $scope.row.blades1 = +$scope.postdata.MaterialDriveControls.Width * (parseFloat(selected[2]) * parseFloat(factor[2]) * dia);
+      return $scope.row.hub1 = +$scope.postdata.MaterialDriveControls.Width * (parseFloat(selected[0]) * data.color.hub * dia);
     };
     generateChart = function(result) {
       var chartData;
@@ -128,17 +124,25 @@
         $scope: $scope
       });
     };
-    return $http.post('/api/postdata', JSON.stringify(projectservice.createJson(chartService.postdata))).success(function(result) {
+    return $http.post('/api/postdata', JSON.stringify(projectservice.createJson($scope.postdata))).success(function(result) {
       if (result.length) {
         result = _.sortBy(result, 'Efficiency').reverse();
+        result = _.map(result, function(item) {
+          return _.assign(item, {
+            backPlate1: 0,
+            shroudPlate1: 0,
+            blades1: 0,
+            hub1: 0
+          });
+        });
         $scope.result = result;
+        projectservice.postdata = null;
         tableData();
         generateChart(result);
-        $scope.loading = false;
+        return $scope.loading = false;
       } else {
-
+        return $scope.loading = false;
       }
-      return $scope.loading = false;
     });
   }).directive('highchart', function() {
     return {
@@ -159,6 +163,25 @@
       }
     };
   });
+
+  /*
+  .directive('report',()->
+      return {
+        restrict :'E',
+        template:'<div></div>',
+        render:true,
+        link:(scope,element,attr)->
+            $(element[0]).telerik_ReportViewer({
+            serviceUrl: "http://192.168.0.160/ReportService/api/reports/"
+            templateUrl: "ReportViewer/templates/telerikReportViewerTemplate.html"
+            reportSource:
+              report: "Farmats.trdx"
+            }
+          )
+      }
+    )
+  */
+
 
 }).call(this);
 

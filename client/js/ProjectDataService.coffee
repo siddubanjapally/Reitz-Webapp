@@ -20,23 +20,22 @@
         when "MMwg" then  x=  parseInt(operate) * 9.81
         when "Mbar" then x=  parseInt(operate)/0.01
         when "Dapa" then  x= parseInt(operate)/10
-    calculateDensity:(condition,operate,Alt,T)->
+    CalculateDensity = (condition,operate,Alt,T)->
       staticPressure = parseFloat(Density(condition,operate))/ 9.81
       baroPres = 760*(Math.E^(-0.000125*parseInt(Alt)))
       1.293*(273/273+parseInt(T))*(baroPres-(0.0737*staticPressure)/760).toFixed(5)
+    postdata = {}
+    editdata = null
     genrateId = ->
       id = 0
       ()->
          ++id
     data = {
       Proposal_OrderNo:''
-      GasOperatingPoints :
+      GasOperatingPoint :
         T: '0'
         P1:'0'
         F:'0'
-      flowrate:
-        Vp : 'M3/S'
-        pres: 'PA'
       FanAssemblies:
         InletSoundSilencer: '0'
         EvaseOutlet_InletAreaRatio: '0'
@@ -76,9 +75,19 @@
         HousingMetalPlateThickness: '0'
         DistanceBetweenStiffners: null
         BackgroundNoiseCorrection:'0'
-      GOPoints:[]
+      GasOperatingPoints:[]
 
     }
+    entitykeyNew = (name)->
+      $id: id().toString()
+      EntitySetName: name
+      EntityContainerName: "FanalytixEntities"
+      EntityKeyValues: [
+        Key: "Id"
+        Type: "System.Guid"
+        Value: guid()
+      ]
+
     tempViscObject = [
       {temp:0,visc:17},{temp:30,visc:18.5},{temp:40,visc:19},
       {temp:50,visc:19.5},{temp:60,visc:19.9},{temp:70,visc:20.4},
@@ -97,6 +106,9 @@
           return tempViscObject[i].visc + 'e-6'
         else if(tempViscObject[i].temp < +temp && +temp < tempViscObject[i+1].temp && +temp <= 650)
           return (( tempViscObject[i].visc  + tempViscObject[i+1].visc )/2 )+ 'e-6'
+
+
+
     guid = ->
         CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
         chars = CHARS
@@ -116,7 +128,10 @@
             uuid[i] = chars[(if (i is 19) then (r & 0x3) | 0x8 else r)]
           i++
         uuid.join ""
+    genearateJson = (data)->
+      console.log data
     createJson =(data) ->
+      console.log data
       id = genrateId()
       obj =
         $id: id().toString()
@@ -208,7 +223,7 @@
           MaterialDensity: +data.MaterialDriveControls.MaterialDensity || null
           MaterialYieldStrength: data.MaterialDriveControls.MaterialYieldStrength
           IECStandardMotor: data.MaterialDriveControls.IECStandardMotor || false
-          NominalMotorSpeed: data.MaterialDriveControls.NominalMotorSpeed || null
+          NominalMotorSpeed: +data.MaterialDriveControls.NominalMotorSpeed || null
           MotorSpeed: +data.MaterialDriveControls.MotorSpeed || null
           MotorPower: data.MaterialDriveControls.MotorPower
           Id: guid()
@@ -217,7 +232,6 @@
           Drive: data.MaterialDriveControls.Drive
           FanProject:
             $ref: "1"
-
           EntityKey:
             $id: id().toString()
             EntitySetName: "MaterialDriveControls"
@@ -238,18 +252,18 @@
             Value: guid()
           ]
       obj.GasDatas[0].GasOperatingPoints = []
-      _.map _.range(data.GOPoints.length),(i) ->
+      _.map _.range(data.GasOperatingPoints.length),(i) ->
         obj.GasDatas[0].GasOperatingPoints.push
           $id: id().toString()
-          T: +data.GOPoints[i].T
-          Dpt: +data.GOPoints[i].Dpt
-          P1: +data.GOPoints[i].P1 || 0
-          F: +data.GOPoints[i].F || 0
+          T: +data.GasOperatingPoints[i].T
+          Dpt: +data.GasOperatingPoints[i].Dpt
+          P1: +data.GasOperatingPoints[i].P1
+          F: +data.GasOperatingPoints[i].F
           Id: guid()
           GasDataId: guid()
-          Ro: +data.GOPoints[i].Ro
-          Vi: data.GOPoints[i].Vi
-          Vp: parseFloat(data.GOPoints[i].Vp)
+          Ro: +data.GasOperatingPoints[i].Ro
+          Vi: data.GasOperatingPoints[i].Vi
+          Vp: parseFloat(data.GasOperatingPoints[i].Vp)
           GasData:
             $ref: "4"
           EntityKey:
@@ -263,9 +277,13 @@
             ]
       obj
     return {
-      data:data
-      createJson: createJson
+      data : data
+      createJson : createJson
       density:density
+      genearateJson:genearateJson
+      postdata:postdata
+      editdata:editdata
+      calculateDensity: CalculateDensity
     }
 
 

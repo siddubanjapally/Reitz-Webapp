@@ -1,28 +1,18 @@
 body{
-    background: white ;
+    background: #EDEDED ;
+    /*background:url( '../images/p68.png');
     /*background-size: 90% 100%;*/
 }
 a{
     text-decoration:none;
 }
-/*#content{
-    background: white url("/reitz.jpg") no-repeat center fixed;
-    background-size: cover;
-}*/
-#navLogo{
-    position: absolute;
-   /* width: 100%;*/
+#content{
+    /*margin-top:100px;*/
 }
-#logo {
-    position: absolute;
-    top:175px;
-    left: 50%;
-    z-index: 100;
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
-    /*background-color: #e5412d;*/
+.navbar-nav>li{
+    padding: 15px 0px;
 }
+
 #login {
     position: relative;
     padding: 32px 25px 50px 25px;
@@ -49,26 +39,7 @@ a{
     padding-top: 8px;
     padding-bottom: 8px;
 }
-/*.img-circle{*/
-/*-webkit-transition-duration: 1s;*/
-/*-moz-transition-duration: 1s;*/
-/*-o-transition-duration: 1s;*/
-/*transition-duration: 1s;*/
 
-/*-webkit-transition-property: -webkit-transform;*/
-/*-moz-transition-property: -moz-transform;*/
-/*-o-transition-property: -o-transform;*/
-/*transition-property: transform;*/
-
-/*overflow:hidden;*/
-
-/*}*/
-/*.img-circle:hover*/
-/*{*/
-/*-webkit-transform:rotate(360deg);*/
-/*-moz-transform:rotate(360deg);*/
-/*-o-transform:rotate(360deg);*/
-/*}*/
 .action_Name{
     margin-top: -200px;
     margin-left: 90px;
@@ -79,13 +50,7 @@ a{
 .carousel-control.right,.carousel-control.left{
     background-image: none !important;
 }
-.navbar-default{
-    margin-top: 90px !important;
-    background-color: #428bca;
-}
-.navbar-default .navbar-nav>li>a{
-    color:#ffffff;
-}
+
 .circle {
     width:50px;height:50px;border-radius:50px;
 }
@@ -95,7 +60,7 @@ a{
     margin-top: 6px;
     height: 33px;
     padding: 0px 3px;
-   /* border-radius: 25px;*/
+    /* border-radius: 25px;*/
     font-size: 13px;
     line-height: 1.33;
 }
@@ -131,6 +96,68 @@ a{
     background: url(../images/ajax-loader.gif) no-repeat center center;
     height: 100px;
     width: 100%
+}
+/*.img-circle{*/
+/*-webkit-transition-duration: 1s;*/
+/*-moz-transition-duration: 1s;*/
+/*-o-transition-duration: 1s;*/
+/*transition-duration: 1s;*/
 
+/*-webkit-transition-property: -webkit-transform;*/
+/*-moz-transition-property: -moz-transform;*/
+/*-o-transition-property: -o-transform;*/
+/*transition-property: transform;*/
 
+/*overflow:hidden;*/
+
+/*}*/
+/*.img-circle:hover*/
+/*{*/
+/*-webkit-transform:rotate(360deg);*/
+/*-moz-transform:rotate(360deg);*/
+/*-o-transform:rotate(360deg);*/
+/*}*/
+/*#content{
+    background: white url("/reitz.jpg") no-repeat center fixed;
+    background-size: cover;
+}*/
+/*#navLogo{*/
+/*position: absolute;*/
+/* width: 100%;*/
+/*}*/
+/*#logo {*/
+/*position: absolute;*/
+/*top:175px;*/
+/*left: 50%;*/
+/*z-index: 100;*/
+/*width: 100px;*/
+/*height: 100px;*/
+/*margin-left: -50px;*/
+/*background-color: #e5412d;*/
+/*}*/
+/*.navbar-default{*/
+/*margin-top: 80px !important;*/
+/*background-color: #428bca;*/
+/*}*/
+/*.navbar-default .navbar-nav>li>a{*/
+/*color:#ffffff;*/
+/*}*/
+/*operating point div css*/
+.op{
+    height:150px;
+    width: 150px;
+    border-radius: 99px;
+    background-color: #428bca;
+    color: white;
+    margin: 5px;
+    float: left;
+}
+
+.opSpan{
+    line-height: 10;
+    text-align: center;
+    margin-left: 20px;
+}
+.navbar-default {
+    height: 85px;
 }

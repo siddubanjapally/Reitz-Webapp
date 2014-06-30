@@ -3,14 +3,18 @@
 //		img(src='../reitz_india.png')
 #login
 	h3.text-center Welcome
-	form#login-form.form(ng-submit='customerViews()')
+	div.alert.alert-danger(ng-show="errorMode")
+		//a.close(data-dismiss='alert')
+		h4.alert-heading Warning!
+		| The username or password you entered is incorrect !!
+	form#login-form.form(ng-submit='customerViews(userlogin)')
 		.form-group.text-center
+			label.radio-inline
+				input#inlineradio2(type='radio',ng-model='userlogin.admin', value='admin',name='login')
+				| Admin
 			label.radio-inline
 				input#inlineradio1(type='radio',ng-model='userlogin.employer', value='employer',name='login')
 				| Employee
-			label.radio-inline
-				input#inlineradio2(type='radio',ng-model='userlogin.customer', value='customer',name='login',ng-checked='true')
-				| Customer
 		.form-group
 			label.control-label(for='login-username') Username
 			.input-group
@@ -24,5 +28,5 @@
 					i(class='glyphicon glyphicon-eye-close')
 				input#login-pasword.form-control(type='password',ng-model='userlogin.password' placeholder='Password')
 		.form-group
-			button#login-btn.btn.btn-primary.btn-block(type='submit')
+			button#login-btn.btn.btn-primary.btn-block(type='submit',ng-click="errorMode='userForm.username.$invalid && userForm.password.$invalid'")
 				| Sign in
